@@ -6,6 +6,7 @@ const MovieDetails = () => {
   const [aboutMovie, setAboutMovie] = useState(null);
   const { movieId } = useParams();
   console.log(aboutMovie);
+
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
@@ -21,7 +22,7 @@ const MovieDetails = () => {
 
   return (
     <div>
-      {/* <h1>{aboutMovie.original_title}</h1> */}
+      <h1>{aboutMovie.original_title}</h1>
       <p>User Score: 75%</p>
       <h2>Overview</h2>
       {/* <p>{aboutMovie.overview}</p> */}
