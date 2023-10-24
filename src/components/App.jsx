@@ -3,10 +3,10 @@ import { Route, Routes } from 'react-router-dom';
 // PAGES
 import Home from './pages/Home';
 import Cast from './Cast';
+import Reviews from './Reviews';
 import Movies from './pages/Movies';
 import MovieDetails from './pages/MovieDetails';
 import NotFoundPage from './pages/NotFoundPage';
-import Reviews from './Reviews';
 import { HeaderLayout } from './HeaderLayout';
 
 // // STYLED
