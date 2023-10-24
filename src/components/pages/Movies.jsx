@@ -4,9 +4,11 @@ export default function Movies() {
   };
 
   return (
-    <form onSubmit={hendleSubmitForm}>
-      <input type="text" />
-      <button type="submit">Search</button>
-    </form>
+    <>
+      <form onSubmit={hendleSubmitForm}>
+        <input type="text" />
+        <button type="submit">Search</button>
+      </form>
+    </>
   );
 }

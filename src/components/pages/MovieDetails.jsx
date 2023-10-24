@@ -1,6 +1,6 @@
 import { getMovieDetails } from 'helpers/API';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 
 export default function MovieDetails() {
   const [aboutMovie, setAboutMovie] = useState(null);
@@ -27,19 +27,29 @@ export default function MovieDetails() {
     <div>
       {aboutMovie && (
         <>
-          <h1>{aboutMovie.original_title}</h1>
+          <img src={aboutMovie.poster_path} alt="" />
+          <h1>
+            {aboutMovie.title ??
+              aboutMovie.original_name ??
+              aboutMovie.name ??
+              aboutMovie.original_title}
+          </h1>
           <p>User Score: {Math.ceil(aboutMovie.vote_average * 10)}%</p>
           <h2>Overview</h2>
-          <p>{aboutMovie ? aboutMovie.overview : 'No overview available'}</p>
+          <p>{aboutMovie.overview ?? 'No overview available'}</p>
           <h2>Genres</h2>
           <ul>
-            {aboutMovie &&
+            {aboutMovie.genres ? (
               aboutMovie.genres.map(genre => {
                 return <li key={genre.id}>{genre.name}</li>;
-              })}
+              })
+            ) : (
+              <li>No genres available</li>
+            )}
           </ul>
         </>
       )}
+      <Outlet />
     </div>
   );
 }
