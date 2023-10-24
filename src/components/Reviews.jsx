@@ -32,7 +32,9 @@ export default function Reviews() {
                 <p className="review-author">
                   <b>Author: {author}</b>
                 </p>
-                <p className="review-content">{content}</p>
+                <p className="review-content">
+                  dangerouslySetInnerHTML={{ __html: content }}
+                </p>
               </div>
             </>
           );
