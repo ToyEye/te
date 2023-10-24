@@ -18,7 +18,7 @@ export default function Cast() {
       try {
         const infoCast = await getMovieCredits(params.movieId);
 
-        console.log(infoCast);
+        // console.log(infoCast);
 
         setAboutCasts(infoCast.cast);
       } catch (err) {

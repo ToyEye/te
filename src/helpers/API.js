@@ -22,7 +22,7 @@ const getMovieReviews = async (movieId, page = 1) => {
     `movie/${movieId}/reviews?language=en-US&page=${page}`
   );
 
-  return response;
+  return response.data;
 };
 
 const getTrending = async () => {
