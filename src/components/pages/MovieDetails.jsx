@@ -27,7 +27,10 @@ export default function MovieDetails() {
     <div>
       {aboutMovie && (
         <>
-          <img src={aboutMovie.poster_path} alt="" />
+          <img
+            src={`https://image.tmdb.org/t/p/w200${aboutMovie.poster_path}`}
+            alt=""
+          />
           <h1>
             {aboutMovie.title ??
               aboutMovie.original_name ??
