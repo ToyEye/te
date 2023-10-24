@@ -1,6 +1,8 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 
 const HeaderLayout = () => {
+  const { movieId } = useParams();
+
   return (
     <>
       <header>
@@ -17,10 +19,10 @@ const HeaderLayout = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/Cast">Cast</NavLink>
+              <NavLink to={`/Movie/${movieId}/Cast`}>Cast</NavLink>
             </li>
             <li>
-              <NavLink to="/Reviews">Reviews</NavLink>
+              <NavLink to={`/Movie/${movieId}/Reviews`}>Reviews</NavLink>
             </li>
           </ul>
         </nav>
