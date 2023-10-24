@@ -5,9 +5,14 @@ import { useParams } from 'react-router-dom';
 const MovieDetails = () => {
   const [aboutMovie, setAboutMovie] = useState(null);
   const { movieId } = useParams();
-  console.log(aboutMovie);
+  console.log(movieId);
+  // console.log(aboutMovie);
 
   useEffect(() => {
+    if (!movieId) {
+      return;
+    }
+
     const fetchMovieDetails = async () => {
       try {
         const detailInfo = await getMovieDetails(movieId);
@@ -22,7 +27,7 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <h1>{aboutMovie.original_title}</h1>
+      {/* <h1>{aboutMovie.original_title}</h1> */}
       <p>User Score: 75%</p>
       <h2>Overview</h2>
       {/* <p>{aboutMovie.overview}</p> */}
