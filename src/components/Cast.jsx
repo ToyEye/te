@@ -2,7 +2,9 @@ import { getMovieCredits } from 'helpers/API';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import defaultPic from 'download.jpg';
+// import defaultPic from 'download.jpg';
+const defaultImg =
+  'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
 export default function Cast() {
   const [aboutCasts, setAboutCasts] = useState([]);
@@ -36,14 +38,18 @@ export default function Cast() {
     <div className="actor-card">
       {aboutCasts.length !== 0 &&
         aboutCasts.map(({ id, profile_path, name, character }) => {
-          const imageUrl = profile_path
-            ? `https://image.tmdb.org/t/p/w200${profile_path}`
-            : defaultPic;
+          // const imageUrl = profile_path
+          //   ? `https://image.tmdb.org/t/p/w200${profile_path}`
+          //   : defaultPic;
 
           return (
             <div key={id}>
               <img
-                src={imageUrl}
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w200${profile_path}`
+                    : defaultImg
+                }
                 alt={name}
                 className="actor-image"
                 style={{ width: '300px' }}
