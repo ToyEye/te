@@ -1,4 +1,4 @@
-export default function Movies({}) {
+export default function Movies() {
   const hendleSubmitForm = evt => {
     evt.preventDefault();
   };

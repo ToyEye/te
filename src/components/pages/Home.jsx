@@ -21,7 +21,7 @@ export default function Home() {
     }
 
     fetchData();
-  }, []);
+  }, [trendMovies]);
 
   return (
     <div>
