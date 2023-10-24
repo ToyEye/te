@@ -16,6 +16,12 @@ const HeaderLayout = () => {
                 Movie
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/Cast">Cast</NavLink>
+            </li>
+            <li>
+              <NavLink to="/Reviews">Reviews</NavLink>
+            </li>
           </ul>
         </nav>
       </header>
