@@ -11,7 +11,7 @@ export default function Reviews() {
     const fetchMovieReviews = async () => {
       try {
         const totalRev = await getMovieReviews(params.movieId);
-        setAboutReviews(totalRev);
+        setAboutReviews(totalRev.results);
       } catch (err) {
         console.log(err);
       }
@@ -22,5 +22,21 @@ export default function Reviews() {
     }
   }, [params.movieId]);
 
-  return <div></div>;
+  return (
+    <div>
+      {aboutReviews.length !== 0 &&
+        aboutReviews.map(({ content, author }) => {
+          return (
+            <>
+              <div className="movie-review">
+                <p className="review-author">
+                  <b>Author: {author}</b>
+                </p>
+                <p className="review-content">{content}</p>
+              </div>
+            </>
+          );
+        })}
+    </div>
+  );
 }
