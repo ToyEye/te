@@ -5,8 +5,6 @@ import { useParams } from 'react-router-dom';
 export default function Reviews() {
   const [aboutReviews, setAboutReviews] = useState([]);
   const params = useParams();
-  console.log(aboutReviews);
-
   useEffect(() => {
     const fetchMovieReviews = async () => {
       try {
@@ -25,19 +23,17 @@ export default function Reviews() {
   return (
     <div>
       {aboutReviews.length !== 0 &&
-        aboutReviews.map(({ content, author }) => {
+        aboutReviews.map(({ id, content, author }) => {
           return (
-            <>
-              <div className="movie-review">
-                <p className="review-author">
-                  <b>Author: {author}</b>
-                </p>
-                <p
-                  className="review-content"
-                  dangerouslySetInnerHTML={{ __html: content }}
-                ></p>
-              </div>
-            </>
+            <div key={id} className="movie-review">
+              <p className="review-author">
+                <b>Author: {author}</b>
+              </p>
+              <p
+                className="review-content"
+                dangerouslySetInnerHTML={{ __html: content }}
+              ></p>
+            </div>
           );
         })}
     </div>

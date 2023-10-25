@@ -9,14 +9,14 @@ export default function MovieList({ trendMovies }) {
             const displayTitle =
               title || original_title || name || original_name;
             return (
-              <Link key={id} to={`/Movie/${id}`}>
-                <li
-                  key={id}
-                  style={{ marginLeft: '40px', listStyleType: 'disc' }}
-                >
+              <li
+                key={id}
+                style={{ marginLeft: '40px', listStyleType: 'disc' }}
+              >
+                <Link key={id} to={`/Movie/${id}`}>
                   {displayTitle}
-                </li>
-              </Link>
+                </Link>
+              </li>
             );
           }
         )}
