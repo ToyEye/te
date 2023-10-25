@@ -36,7 +36,7 @@ const searchMovies = async (page = 1, query) => {
     `search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`
   );
 
-  return response;
+  return response.data;
 };
 
 export {

@@ -1,3 +1,4 @@
+import MovieList from 'components/MoviesList';
 import { searchMovies } from 'helpers/API';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -26,8 +27,8 @@ export default function Movies() {
   const fetchedMovies = async () => {
     try {
       const fetchSearchMovie = await searchMovies(page, validQuery);
-      console.log(fetchSearchMovie);
-      // setMoviesData(fetchSearchMovie);
+      console.log(fetchSearchMovie.results);
+      setMoviesData(fetchSearchMovie.results);
     } catch (err) {
       console.log(err);
     }
@@ -50,6 +51,7 @@ export default function Movies() {
         />
         <button type="submit">Search</button>
       </form>
+      <MovieList trendMovies={moviesData} />
     </>
   );
 }
