@@ -7,31 +7,30 @@ export default function Movies() {
 
   const [moviesData, setMoviesData] = useState([]);
 
-  console.dir(searchParams);
+  const validQuery = searchParams.get('searchQuery');
+  console.log(validQuery);
   // console.log(moviesData);
 
   const hendleSubmitForm = evt => {
     evt.preventDefault();
-
-    // setSearchValue('');
   };
 
   const handleChange = evt => {
     const searchQueryValue = evt.target.value;
 
-    setSearchParams({ search: searchQueryValue });
-  };
-
-  const fetchedMovies = async () => {
-    try {
-      // const fetchSearchMovie = await searchMovies();
-      // setMoviesData(fetchSearchMovie);
-    } catch (err) {
-      console.log(err);
-    }
+    setSearchParams({ searchQuery: searchQueryValue });
   };
 
   useEffect(() => {
+    const fetchedMovies = async () => {
+      try {
+        const fetchSearchMovie = await searchMovies(1, validQuery);
+        // setMoviesData(fetchSearchMovie);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
     fetchedMovies();
   }, []);
 
