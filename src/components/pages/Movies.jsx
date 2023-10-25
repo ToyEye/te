@@ -45,7 +45,7 @@ export default function Movies() {
       <form onSubmit={handleSubmitForm}>
         <input
           type="text"
-          // value={{}}
+          value={validQuery}
           placeholder="Введіть пошуковий запит"
           onChange={handleChange}
         />
