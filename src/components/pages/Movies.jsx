@@ -7,7 +7,7 @@ export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [moviesData, setMoviesData] = useState([]);
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
 
   const validQuery = searchParams.get('searchQuery') ?? '';
 
@@ -24,18 +24,18 @@ export default function Movies() {
     setSearchParams({ searchQuery: inputValue });
   };
 
-  const fetchedMovies = async () => {
-    try {
-      const fetchSearchMovie = await searchMovies(page, validQuery);
-      console.log(fetchSearchMovie.results);
-      setMoviesData(fetchSearchMovie.results);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
     if (!validQuery) return;
+
+    const fetchedMovies = async () => {
+      try {
+        const fetchSearchMovie = await searchMovies(1, validQuery);
+        console.log(fetchSearchMovie.results);
+        setMoviesData(fetchSearchMovie.results);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
     fetchedMovies();
   }, [validQuery]);
