@@ -7,8 +7,8 @@ export default function Movies() {
 
   const [moviesData, setMoviesData] = useState([]);
 
-  console.dir(searchValue);
-  console.log(moviesData);
+  console.dir(searchParams);
+  // console.log(moviesData);
 
   const hendleSubmitForm = evt => {
     evt.preventDefault();
@@ -18,7 +18,8 @@ export default function Movies() {
 
   const handleChange = evt => {
     const searchQueryValue = evt.target.value;
-    setSearchValue(searchQueryValue);
+
+    setSearchParams({ search: searchQueryValue });
   };
 
   const fetchedMovies = async () => {
