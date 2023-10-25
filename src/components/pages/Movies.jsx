@@ -24,8 +24,8 @@ export default function Movies() {
 
   const fetchedMovies = async () => {
     try {
-      const fetchSearchMovie = await searchMovies(searchValue);
-      setMoviesData(fetchSearchMovie);
+      // const fetchSearchMovie = await searchMovies();
+      // setMoviesData(fetchSearchMovie);
     } catch (err) {
       console.log(err);
     }
@@ -40,7 +40,7 @@ export default function Movies() {
       <form onSubmit={hendleSubmitForm}>
         <input
           type="text"
-          value={searchValue}
+          // value={{}}
           placeholder="Введіть пошуковий запит"
           onChange={handleChange}
         />
