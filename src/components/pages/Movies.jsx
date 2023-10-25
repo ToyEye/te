@@ -1,8 +1,10 @@
 import { searchMovies } from 'helpers/API';
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 export default function Movies() {
-  const [searchValue, setSearchValue] = useState('matrix');
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const [moviesData, setMoviesData] = useState([]);
 
   console.dir(searchValue);
@@ -11,7 +13,7 @@ export default function Movies() {
   const hendleSubmitForm = evt => {
     evt.preventDefault();
 
-    setSearchValue('');
+    // setSearchValue('');
   };
 
   const handleChange = evt => {
@@ -20,7 +22,6 @@ export default function Movies() {
   };
 
   const fetchedMovies = async () => {
-    if (!searchValue) return;
     try {
       const fetchSearchMovie = await searchMovies(searchValue);
       setMoviesData(fetchSearchMovie);
@@ -31,7 +32,7 @@ export default function Movies() {
 
   useEffect(() => {
     fetchedMovies();
-  }, [searchValue]);
+  }, []);
 
   return (
     <>
