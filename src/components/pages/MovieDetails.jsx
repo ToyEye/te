@@ -1,6 +1,6 @@
 import { getMovieDetails } from 'helpers/API';
 import { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 
 export default function MovieDetails() {
   const [aboutMovie, setAboutMovie] = useState(null);
@@ -54,7 +54,6 @@ export default function MovieDetails() {
           </ul>
         </>
       )}
-
       <ul>
         <li>
           <NavLink to={`/Movie/${params.movieId}/Cast`}>Cast</NavLink>
@@ -63,6 +62,7 @@ export default function MovieDetails() {
           <NavLink to={`/Movie/${params.movieId}/Reviews`}>Reviews</NavLink>
         </li>
       </ul>
+      <Outlet />
     </div>
   );
 }
