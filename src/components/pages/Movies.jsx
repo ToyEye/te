@@ -16,9 +16,9 @@ export default function Movies() {
   };
 
   const handleChange = evt => {
-    const searchQueryValue = evt.target.value;
+    const inputValue = evt.target.value;
 
-    setSearchParams({ searchQuery: searchQueryValue });
+    setSearchParams({ searchQuery: inputValue });
   };
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Movies() {
     };
 
     fetchedMovies();
-  }, []);
+  }, [searchParams]);
 
   return (
     <>
