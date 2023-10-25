@@ -22,6 +22,7 @@ export default function MovieDetails() {
 
     fetchMovieDetails();
   }, [params.movieId]);
+
   console.log(params.movieId);
 
   return (

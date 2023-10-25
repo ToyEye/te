@@ -2,8 +2,6 @@ import { Outlet } from 'react-router-dom';
 import { HeaderLink, ListUlHeader, Header } from './HeaderLayout.styled';
 
 const HeaderLayout = () => {
-  // const { movieId } = useParams();
-
   return (
     <>
       <Header>
