@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div>
-      <h2 style={{ marginLeft: '10px' }}>Trending today</h2>
+      <h2 style={{ textAlign: 'center' }}>Trending today</h2>
       <MovieList trendMovies={trendMovies} />
     </div>
   );

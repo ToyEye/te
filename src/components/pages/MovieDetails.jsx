@@ -1,6 +1,6 @@
 import { getMovieDetails } from 'helpers/API';
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 export default function MovieDetails() {
   const [aboutMovie, setAboutMovie] = useState(null);

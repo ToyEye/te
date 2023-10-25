@@ -1,25 +1,34 @@
-import { Link } from 'react-router-dom';
+import { LinkMy, ListUl } from './MoviesList.styled';
 
 export default function MovieList({ trendMovies }) {
   return (
-    <ul>
+    <ListUl>
       {trendMovies &&
         trendMovies.map(
-          ({ id, title, overview, original_title, original_name, name }) => {
+          ({
+            id,
+            title,
+            overview,
+            original_title,
+            original_name,
+            name,
+            poster_path,
+          }) => {
             const displayTitle =
               title || original_title || name || original_name;
             return (
-              <li
-                key={id}
-                style={{ marginLeft: '40px', listStyleType: 'disc' }}
-              >
-                <Link key={id} to={`/Movie/${id}`}>
+              <li key={id}>
+                <LinkMy key={id} to={`/Movie/${id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200${poster_path}`}
+                    alt={displayTitle}
+                  />
                   {displayTitle}
-                </Link>
+                </LinkMy>
               </li>
             );
           }
         )}
-    </ul>
+    </ListUl>
   );
 }

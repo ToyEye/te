@@ -1,26 +1,27 @@
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { HeaderLink, ListUlHeader, Header } from './HeaderLayout.styled';
 
 const HeaderLayout = () => {
   // const { movieId } = useParams();
 
   return (
     <>
-      <header>
+      <Header>
         <nav>
-          <ul>
+          <ListUlHeader>
             <li>
-              <NavLink to="/" className="nav-link">
+              <HeaderLink to="/" className="nav-link">
                 Home
-              </NavLink>
+              </HeaderLink>
             </li>
             <li>
-              <NavLink to="/Movie" className="nav-link">
+              <HeaderLink to="/Movie" className="nav-link">
                 Movie
-              </NavLink>
+              </HeaderLink>
             </li>
-          </ul>
+          </ListUlHeader>
         </nav>
-      </header>
+      </Header>
 
       <Outlet />
     </>
