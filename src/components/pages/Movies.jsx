@@ -7,12 +7,22 @@ export default function Movies() {
 
   const [moviesData, setMoviesData] = useState([]);
 
-  const validQuery = searchParams.get('searchQuery');
+  const validQuery = searchParams.get('searchQuery') ?? '';
+
   console.log(validQuery);
   // console.log(moviesData);
 
-  const hendleSubmitForm = evt => {
+  const handleSubmitForm = evt => {
     evt.preventDefault();
+
+    const fetchedMovies = async () => {
+      try {
+        const fetchSearchMovie = await searchMovies(1, validQuery);
+        // setMoviesData(fetchSearchMovie);
+      } catch (err) {
+        console.log(err);
+      }
+    };
   };
 
   const handleChange = evt => {
@@ -22,21 +32,12 @@ export default function Movies() {
   };
 
   useEffect(() => {
-    const fetchedMovies = async () => {
-      try {
-        const fetchSearchMovie = await searchMovies(1, validQuery);
-        // setMoviesData(fetchSearchMovie);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchedMovies();
+    // fetchedMovies();
   }, [searchParams]);
 
   return (
     <>
-      <form onSubmit={hendleSubmitForm}>
+      <form onSubmit={handleSubmitForm}>
         <input
           type="text"
           // value={{}}
