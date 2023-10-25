@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { searchMovies } from 'helpers/API';
+import { useEffect, useState } from 'react';
 
 export default function Movies() {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState('matrix');
+  const [moviesData, setMoviesData] = useState([]);
 
   console.dir(searchValue);
+  console.log(moviesData);
 
   const hendleSubmitForm = evt => {
     evt.preventDefault();
@@ -15,6 +18,20 @@ export default function Movies() {
     const searchQueryValue = evt.target.value;
     setSearchValue(searchQueryValue);
   };
+
+  const fetchedMovies = async () => {
+    if (!searchValue) return;
+    try {
+      const fetchSearchMovie = await searchMovies(searchValue);
+      setMoviesData(fetchSearchMovie);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchedMovies();
+  }, [searchValue]);
 
   return (
     <>
