@@ -16,7 +16,7 @@ export default function MovieList({ trendMovies }) {
               title || original_title || name || original_name;
             return (
               <li key={id}>
-                <LinkMy key={id} to={`/Movie/${id}`} state={{ from: location }}>
+                <LinkMy key={id} to={`/Movie/${id}`} state={location}>
                   <img
                     src={
                       poster_path
