@@ -9,7 +9,7 @@ export default function Movies() {
   const [params, setParams] = useSearchParams();
   const query = params.get('query') ?? '';
 
-  console.log(params);
+  // console.log(params);
 
   const [moviesData, setMoviesData] = useState([]);
   // const [page, setPage] = useState(1);

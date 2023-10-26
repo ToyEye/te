@@ -93,18 +93,12 @@ export default function MovieDetails() {
       <div style={{ marginBottom: '20px' }}>
         <AdditionalInfoList>
           <AdditionalInfoListItem>
-            <AdditionalNavLink
-              to={`/Movie/${params.movieId}/Cast`}
-              state={localLocation}
-            >
+            <AdditionalNavLink to={`/Movie/${params.movieId}/Cast`}>
               Cast
             </AdditionalNavLink>
           </AdditionalInfoListItem>
           <AdditionalInfoListItem>
-            <AdditionalNavLink
-              to={`/Movie/${params.movieId}/Reviews`}
-              state={localLocation}
-            >
+            <AdditionalNavLink to={`/Movie/${params.movieId}/Reviews`}>
               Reviews
             </AdditionalNavLink>
           </AdditionalInfoListItem>
