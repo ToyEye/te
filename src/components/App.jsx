@@ -7,6 +7,7 @@ import Reviews from './Reviews/Reviews';
 import Movies from './pages/Movies';
 import MovieDetails from './pages/MovieDetails';
 import NotFoundPage from './pages/NotFoundPage';
+import Genre from './pages/Genre';
 import { HeaderLayout } from './HeaderLayout/HeaderLayout';
 import { Toaster } from 'react-hot-toast';
 
@@ -28,10 +29,12 @@ export const App = () => {
         <Route path="/" element={<HeaderLayout />}>
           <Route index element={<Home />} />
           <Route path="Movie" element={<Movies />} />
+          <Route path="Genre" element={<Genre />} />
           <Route path="Movie/:movieId" element={<MovieDetails />}>
             <Route path="Cast" element={<Cast />} />
             <Route path="Reviews" element={<Reviews />} />
           </Route>
+
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

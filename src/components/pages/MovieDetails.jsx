@@ -1,6 +1,7 @@
 import { getMovieDetails } from 'helpers/API';
-import { useEffect, useRef, useState } from 'react';
+import { createContext, useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
+
 import {
   LinkBtnBack,
   ContainerInfo,
@@ -24,6 +25,11 @@ export default function MovieDetails() {
   const [aboutMovie, setAboutMovie] = useState(null);
   const [isNotFound, setIsNotFound] = useState();
 
+  // ID GENRES
+  const [genreId, setGenreId] = useState(null);
+  const IdContext = createContext(null);
+
+  // console.log(genreId);
   const params = useParams();
 
   const localLocation = useLocation();
@@ -50,17 +56,19 @@ export default function MovieDetails() {
     return <NotFoundPage />;
   }
 
+  const handleIdClick = selectedId => {
+    setGenreId(selectedId);
+  };
+
   return (
     <div style={{ padding: '20px' }}>
       <LinkBtnBack to={backLinkLocationRef.current}>Back</LinkBtnBack>
       {aboutMovie && (
         <ContainerInfo>
-          {/* <ImgPosterContainer> */}
           <ImgPoster
             src={`https://image.tmdb.org/t/p/w200${aboutMovie.poster_path}`}
             alt=""
           />
-          {/* </ImgPosterContainer> */}
 
           <div>
             <TitleMovie>
@@ -81,7 +89,14 @@ export default function MovieDetails() {
               {aboutMovie.genres ? (
                 aboutMovie.genres.map(genre => {
                   return (
-                    <GenresListItem key={genre.id}>{genre.name}</GenresListItem>
+                    <GenresListItem key={genre.id}>
+                      <button
+                        key={genre.id}
+                        onClick={() => handleIdClick(genre.id)}
+                      >
+                        {genre.name}
+                      </button>
+                    </GenresListItem>
                   );
                 })
               ) : (

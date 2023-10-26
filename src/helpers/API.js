@@ -39,10 +39,19 @@ const searchMovies = async (page = 1, query) => {
   return response.data;
 };
 
+const getMovieGenres = async (genresID = 14, page = 1) => {
+  const response = await axios.get(
+    `discover/movie?with_genres=${genresID}&page=${page}`
+  );
+
+  return response.data;
+};
+
 export {
   getMovieCredits,
   getMovieDetails,
   getMovieReviews,
   getTrending,
   searchMovies,
+  getMovieGenres,
 };
