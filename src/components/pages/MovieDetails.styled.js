@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const LinkBtnBack = styled(Link)`
@@ -86,28 +86,21 @@ const AdditionalInfo = styled.h3`
 
 const AdditionalInfoList = styled.ul`
   display: flex;
-  flex-wrap: wrap;
-  row-gap: 28px;
-  column-gap: 16px;
-  width: 1314px;
-  margin: 0 auto;
   margin-top: 25px;
+
+  column-gap: 28px;
 `;
 
-const AdditionalInfoListItem = styled.li`
-  display: flex;
-  flex-direction: column;
-  row-gap: 8px;
-
-  padding: 12px;
-  width: 250px;
-  height: 406px;
-  border-radius: 8px;
-  border: solid 1px orange;
-
+const AdditionalNavLink = styled(NavLink)`
   text-decoration: none;
   color: black;
+  transition: color 250ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  text &:hover {
+    color: orange;
+  }
 `;
+
+const AdditionalInfoListItem = styled.li``;
 
 export {
   LinkBtnBack,
@@ -121,4 +114,7 @@ export {
   GenresList,
   GenresListItem,
   AdditionalInfo,
+  AdditionalInfoList,
+  AdditionalNavLink,
+  AdditionalInfoListItem,
 };

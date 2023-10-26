@@ -1,6 +1,6 @@
 import { getMovieDetails } from 'helpers/API';
 import { useEffect, useState } from 'react';
-import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import {
   LinkBtnBack,
   ContainerInfo,
@@ -13,6 +13,9 @@ import {
   GenresList,
   GenresListItem,
   AdditionalInfo,
+  AdditionalInfoList,
+  AdditionalNavLink,
+  AdditionalInfoListItem,
 } from './MovieDetails.styled';
 
 export default function MovieDetails() {
@@ -39,7 +42,7 @@ export default function MovieDetails() {
   console.log(params.movieId);
 
   return (
-    <div>
+    <div style={{ padding: '20px' }}>
       <LinkBtnBack>Back</LinkBtnBack>
       {aboutMovie && (
         <ContainerInfo>
@@ -76,16 +79,20 @@ export default function MovieDetails() {
           </div>
         </ContainerInfo>
       )}
-      <div>
-        <AdditionalInfo>Additional informtaion</AdditionalInfo>
-        <ul>
-          <li>
-            <NavLink to={`/Movie/${params.movieId}/Cast`}>Cast</NavLink>
-          </li>
-          <li>
-            <NavLink to={`/Movie/${params.movieId}/Reviews`}>Reviews</NavLink>
-          </li>
-        </ul>
+      <AdditionalInfo>Additional informtaion</AdditionalInfo>
+      <div style={{ marginBottom: '20px' }}>
+        <AdditionalInfoList>
+          <AdditionalInfoListItem>
+            <AdditionalNavLink to={`/Movie/${params.movieId}/Cast`}>
+              Cast
+            </AdditionalNavLink>
+          </AdditionalInfoListItem>
+          <AdditionalInfoListItem>
+            <AdditionalNavLink to={`/Movie/${params.movieId}/Reviews`}>
+              Reviews
+            </AdditionalNavLink>
+          </AdditionalInfoListItem>
+        </AdditionalInfoList>
       </div>
       <Outlet />
     </div>
