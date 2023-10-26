@@ -18,20 +18,21 @@ export default function Cast() {
   const [aboutCasts, setAboutCasts] = useState([]);
   const params = useParams();
 
-  const [isError, setIsError] = useState(false);
+  // const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     const fetchMovieCredits = async () => {
-      setIsError(false);
+      // setIsError(false);
 
       try {
         const infoCast = await getMovieCredits(params.movieId);
+        setAboutCasts(infoCast.cast);
 
-        if (infoCast.cast.length === 0) {
-          setIsError(true);
-        } else {
-          setAboutCasts(infoCast.cast);
-        }
+        // if (infoCast.cast.length === 0) {
+        //   setIsError(true);
+        // } else {
+        //   setAboutCasts(infoCast.cast);
+        // }
       } catch (err) {
         console.log(err);
       }
