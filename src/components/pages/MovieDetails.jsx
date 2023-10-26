@@ -53,7 +53,7 @@ export default function MovieDetails() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <LinkBtnBack to={localLocation.state}>Back</LinkBtnBack>
+      <LinkBtnBack to={localLocation.state?.from ?? '/'}>Back</LinkBtnBack>
       {aboutMovie && (
         <ContainerInfo>
           <ImgPoster
