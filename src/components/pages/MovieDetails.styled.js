@@ -24,6 +24,8 @@ const LinkBtnBack = styled(Link)`
   background-color: #f7e6d1;
   border-color: #d3b8a7;
 
+  margin-bottom: 10px;
+
   &:hover,
   &:focus {
     color: #6c4c33;
