@@ -26,7 +26,7 @@ export default function MovieDetails() {
   const [isNotFound, setIsNotFound] = useState();
 
   // ID GENRES
-  // const [genreId, setGenreId] = useState(null);
+  const [genreId, setGenreId] = useState(null);
 
   // console.log(genreId);
   const params = useParams();
@@ -56,7 +56,7 @@ export default function MovieDetails() {
   }
 
   const handleIdClick = selectedId => {
-    setGenreId(selectedId);
+    // setGenreId(selectedId);
   };
 
   return (
