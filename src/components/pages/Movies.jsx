@@ -3,7 +3,7 @@ import { searchMovies } from 'helpers/API';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-// import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 export default function Movies() {
   const [params, setParams] = useSearchParams();
