@@ -18,19 +18,20 @@ export default function Cast() {
   const [aboutCasts, setAboutCasts] = useState([]);
   const params = useParams();
 
-  // console.log(params.movieId);
-  // console.log(aboutCasts);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    // if (aboutCasts.length === 0) return;
-
     const fetchMovieCredits = async () => {
+      setIsError(false);
+
       try {
         const infoCast = await getMovieCredits(params.movieId);
 
-        // console.log(infoCast);
-
-        setAboutCasts(infoCast.cast);
+        if (infoCast.cast.length === 0) {
+          setIsError(true);
+        } else {
+          setAboutCasts(infoCast.cast);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -39,37 +40,28 @@ export default function Cast() {
     if (params.movieId) {
       fetchMovieCredits();
     }
-    // fetchMovieCredits();
   }, [params.movieId]);
 
   return (
     <ActorCard>
-      {aboutCasts.length !== 0
-        ? aboutCasts.map(({ id, profile_path, name, character }) => {
-            // const imageUrl = profile_path
-            //   ? `https://image.tmdb.org/t/p/w200${profile_path}`
-            //   : defaultPic;
-
-            return (
-              <ActorContainer key={id}>
-                <ActorImage
-                  src={
-                    profile_path
-                      ? `https://image.tmdb.org/t/p/w200${profile_path}`
-                      : defaultImg
-                  }
-                  alt={name}
-                />
-                <ActorInfoContainer>
-                  <ActorName>{name}</ActorName>
-                  <ActorCharacter>Character: {character}</ActorCharacter>
-                </ActorInfoContainer>
-              </ActorContainer>
-            );
-          })
-        : aboutCasts.length === 0 && (
-            <div>We don't have any reviews for this movie.</div>
-          )}
+      {aboutCasts.map(({ id, profile_path, name, character }) => {
+        return (
+          <ActorContainer key={id}>
+            <ActorImage
+              src={
+                profile_path
+                  ? `https://image.tmdb.org/t/p/w200${profile_path}`
+                  : defaultImg
+              }
+              alt={name}
+            />
+            <ActorInfoContainer>
+              <ActorName>{name}</ActorName>
+              <ActorCharacter>Character: {character}</ActorCharacter>
+            </ActorInfoContainer>
+          </ActorContainer>
+        );
+      })}
     </ActorCard>
   );
 }

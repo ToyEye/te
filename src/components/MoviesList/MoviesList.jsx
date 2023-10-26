@@ -1,7 +1,6 @@
 import {
   ContainerListMovie,
   ListUl,
-  ContainerPosterImg,
   PosterMovie,
   LinkMy,
 } from './MoviesList.styled';
@@ -35,16 +34,14 @@ export default function MovieList({ trendMovies }) {
                     to={`/Movie/${id}`}
                     state={{ from: location }}
                   >
-                    <ContainerPosterImg>
-                      <PosterMovie
-                        src={
-                          poster_path
-                            ? `https://image.tmdb.org/t/p/w200${poster_path}`
-                            : defaultImg
-                        }
-                        alt={displayTitle}
-                      />
-                    </ContainerPosterImg>
+                    <PosterMovie
+                      src={
+                        poster_path
+                          ? `https://image.tmdb.org/t/p/w200${poster_path}`
+                          : defaultImg
+                      }
+                      alt={displayTitle}
+                    />
 
                     {displayTitle}
                   </LinkMy>

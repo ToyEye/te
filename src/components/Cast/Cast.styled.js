@@ -13,6 +13,15 @@ const ActorContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  border-radius: 5%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const ActorImage = styled.img`
