@@ -18,8 +18,12 @@ import {
   AdditionalInfoListItem,
 } from './MovieDetails.styled';
 
+import NotFoundPage from './NotFoundPage';
+
 export default function MovieDetails() {
   const [aboutMovie, setAboutMovie] = useState(null);
+  const [isNotFound, setIsNotFound] = useState();
+
   const params = useParams();
 
   useEffect(() => {
@@ -32,6 +36,7 @@ export default function MovieDetails() {
         const detailInfo = await getMovieDetails(params.movieId);
         setAboutMovie(detailInfo);
       } catch (err) {
+        setIsNotFound(true);
         console.log(err);
       }
     };
@@ -39,7 +44,10 @@ export default function MovieDetails() {
     fetchMovieDetails();
   }, [params.movieId]);
 
-  console.log(params.movieId);
+  if (isNotFound) {
+    return <NotFoundPage />;
+  }
+  // console.log(params.movieId);
 
   return (
     <div style={{ padding: '20px' }}>
