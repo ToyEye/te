@@ -8,14 +8,10 @@ const HeaderLayout = () => {
         <nav>
           <ListUlHeader>
             <li>
-              <HeaderLink to="/" className="nav-link">
-                Home
-              </HeaderLink>
+              <HeaderLink to="/">Home</HeaderLink>
             </li>
             <li>
-              <HeaderLink to="/Movie" className="nav-link">
-                Movie
-              </HeaderLink>
+              <HeaderLink to="/Movie">Movie</HeaderLink>
             </li>
           </ListUlHeader>
         </nav>

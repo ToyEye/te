@@ -49,6 +49,8 @@ export default function MovieDetails() {
     return <NotFoundPage />;
   }
 
+  console.log(localLocation);
+
   return (
     <div style={{ padding: '20px' }}>
       <LinkBtnBack to={localLocation.state}>Back</LinkBtnBack>
@@ -91,12 +93,18 @@ export default function MovieDetails() {
       <div style={{ marginBottom: '20px' }}>
         <AdditionalInfoList>
           <AdditionalInfoListItem>
-            <AdditionalNavLink to={`/Movie/${params.movieId}/Cast`}>
+            <AdditionalNavLink
+              to={`/Movie/${params.movieId}/Cast`}
+              state={localLocation}
+            >
               Cast
             </AdditionalNavLink>
           </AdditionalInfoListItem>
           <AdditionalInfoListItem>
-            <AdditionalNavLink to={`/Movie/${params.movieId}/Reviews`}>
+            <AdditionalNavLink
+              to={`/Movie/${params.movieId}/Reviews`}
+              state={localLocation}
+            >
               Reviews
             </AdditionalNavLink>
           </AdditionalInfoListItem>
