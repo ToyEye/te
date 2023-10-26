@@ -60,7 +60,8 @@ const OverView = styled.h2`
   margin-bottom: 10px;
 `;
 const OverViewParagraph = styled.p`
-  width: 500px;
+  width: 700px;
+  margin-bottom: 10px;
 `;
 
 const Genres = styled.h2`
