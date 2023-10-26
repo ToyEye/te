@@ -44,32 +44,32 @@ export default function Cast() {
 
   return (
     <ActorCard>
-      {aboutCasts.length !== 0 ? (
-        aboutCasts.map(({ id, profile_path, name, character }) => {
-          // const imageUrl = profile_path
-          //   ? `https://image.tmdb.org/t/p/w200${profile_path}`
-          //   : defaultPic;
+      {aboutCasts.length !== 0
+        ? aboutCasts.map(({ id, profile_path, name, character }) => {
+            // const imageUrl = profile_path
+            //   ? `https://image.tmdb.org/t/p/w200${profile_path}`
+            //   : defaultPic;
 
-          return (
-            <ActorContainer key={id}>
-              <ActorImage
-                src={
-                  profile_path
-                    ? `https://image.tmdb.org/t/p/w200${profile_path}`
-                    : defaultImg
-                }
-                alt={name}
-              />
-              <ActorInfoContainer>
-                <ActorName>{name}</ActorName>
-                <ActorCharacter>Character: {character}</ActorCharacter>
-              </ActorInfoContainer>
-            </ActorContainer>
-          );
-        })
-      ) : (
-        <div>We don't have any reviews for this movie.</div>
-      )}
+            return (
+              <ActorContainer key={id}>
+                <ActorImage
+                  src={
+                    profile_path
+                      ? `https://image.tmdb.org/t/p/w200${profile_path}`
+                      : defaultImg
+                  }
+                  alt={name}
+                />
+                <ActorInfoContainer>
+                  <ActorName>{name}</ActorName>
+                  <ActorCharacter>Character: {character}</ActorCharacter>
+                </ActorInfoContainer>
+              </ActorContainer>
+            );
+          })
+        : aboutCasts.length === 0 && (
+            <div>We don't have any reviews for this movie.</div>
+          )}
     </ActorCard>
   );
 }
