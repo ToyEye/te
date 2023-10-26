@@ -6,6 +6,9 @@ import { CommentContainer, CommentText, CommentAuthor } from './Reviews.styled';
 export default function Reviews() {
   const [aboutReviews, setAboutReviews] = useState([]);
   const params = useParams();
+
+  // console.log(aboutReviews);
+
   useEffect(() => {
     const fetchMovieReviews = async () => {
       try {
@@ -23,7 +26,7 @@ export default function Reviews() {
 
   return (
     <div>
-      {aboutReviews.length !== 0 &&
+      {aboutReviews.length !== 0 ? (
         aboutReviews.map(({ id, content, author }) => {
           return (
             <CommentContainer key={id}>
@@ -33,7 +36,10 @@ export default function Reviews() {
               ></CommentText>
             </CommentContainer>
           );
-        })}
+        })
+      ) : (
+        <div>We don't have aby reviews for this movie.</div>
+      )}
     </div>
   );
 }
