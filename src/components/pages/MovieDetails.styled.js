@@ -39,8 +39,16 @@ const ContainerInfo = styled.div`
   display: flex;
   column-gap: 16px;
 `;
+const ImgPosterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const ImgPoster = styled.img`
+  display: block;
+
   margin-right: 20px;
   max-width: 200px;
   height: auto;
@@ -108,6 +116,7 @@ const AdditionalInfoListItem = styled.li``;
 export {
   LinkBtnBack,
   ContainerInfo,
+  ImgPosterContainer,
   ImgPoster,
   TitleMovie,
   UserScore,

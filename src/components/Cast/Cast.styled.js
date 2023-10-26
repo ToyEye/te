@@ -14,6 +14,7 @@ const ActorContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 const ActorImage = styled.img`
   display: block;
 

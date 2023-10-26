@@ -4,6 +4,7 @@ import { Outlet, useLocation, useParams } from 'react-router-dom';
 import {
   LinkBtnBack,
   ContainerInfo,
+  ImgPosterContainer,
   ImgPoster,
   TitleMovie,
   UserScore,
@@ -55,10 +56,13 @@ export default function MovieDetails() {
       <LinkBtnBack to={backLinkLocationRef.current}>Back</LinkBtnBack>
       {aboutMovie && (
         <ContainerInfo>
-          <ImgPoster
-            src={`https://image.tmdb.org/t/p/w200${aboutMovie.poster_path}`}
-            alt=""
-          />
+          <ImgPosterContainer>
+            <ImgPoster
+              src={`https://image.tmdb.org/t/p/w200${aboutMovie.poster_path}`}
+              alt=""
+            />
+          </ImgPosterContainer>
+
           <div>
             <TitleMovie>
               {aboutMovie.title ??
