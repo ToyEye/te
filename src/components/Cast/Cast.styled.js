@@ -17,8 +17,11 @@ const ActorContainer = styled.div`
 
 const ActorImage = styled.img`
   display: block;
-
   width: 250px;
+
+  border-radius: 5%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const ActorInfoContainer = styled.div`
@@ -28,10 +31,14 @@ const ActorInfoContainer = styled.div`
 const ActorName = styled.h3`
   margin-bottom: 8px;
   text-align: center;
+  font-size: 16px;
+  font-weight: bold;
 `;
 
 const ActorCharacter = styled.p`
   text-align: center;
+  font-size: 14px;
+  color: #888;
 `;
 
 export {
