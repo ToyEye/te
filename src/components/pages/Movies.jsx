@@ -49,6 +49,7 @@ export default function Movies() {
           placeholder="Введіть пошуковий запит"
           name="queryValueSearch"
           // onChange={handleChange}
+          style={{ marginRight: '10px' }}
         />
         <button type="submit">Search</button>
       </form>
