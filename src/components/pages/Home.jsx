@@ -6,7 +6,7 @@ export default function Home() {
   const [trendMovies, setTrendMovies] = useState([]);
 
   useEffect(() => {
-    if (!trendMovies) {
+    if (trendMovies.length !== 0) {
       return;
     }
 
