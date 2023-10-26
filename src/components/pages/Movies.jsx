@@ -9,8 +9,6 @@ export default function Movies() {
   const [params, setParams] = useSearchParams();
   const query = params.get('query') ?? '';
 
-  // console.log(params);
-
   const [moviesData, setMoviesData] = useState([]);
   // const [page, setPage] = useState(1);
 
@@ -26,14 +24,6 @@ export default function Movies() {
 
     setParams(params);
   };
-
-  // const handleChange = evt => {
-  //   const inputValue = evt.target.value;
-
-  //   params.set('query', inputValue);
-
-  //   setParams(params);
-  // };
 
   useEffect(() => {
     if (!query) return;
@@ -51,7 +41,7 @@ export default function Movies() {
   }, [query]);
 
   return (
-    <>
+    <div style={{ margin: '0 auto', textAlign: 'center' }}>
       <form onSubmit={handleSubmitForm}>
         <input
           type="text"
@@ -63,6 +53,6 @@ export default function Movies() {
         <button type="submit">Search</button>
       </form>
       <MovieList trendMovies={moviesData} />
-    </>
+    </div>
   );
 }
