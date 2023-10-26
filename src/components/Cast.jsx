@@ -1,6 +1,14 @@
 import { getMovieCredits } from 'helpers/API';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import {
+  ActorCard,
+  ActorContainer,
+  ActorImage,
+  ActorInfoContainer,
+  ActorName,
+  ActorCharacter,
+} from './Cast.styled';
 
 // import defaultPic from 'download.jpg';
 const defaultImg =
@@ -35,7 +43,7 @@ export default function Cast() {
   }, [params.movieId]);
 
   return (
-    <div className="actor-card">
+    <ActorCard>
       {aboutCasts.length !== 0 &&
         aboutCasts.map(({ id, profile_path, name, character }) => {
           // const imageUrl = profile_path
@@ -43,24 +51,22 @@ export default function Cast() {
           //   : defaultPic;
 
           return (
-            <div key={id}>
-              <img
+            <ActorContainer key={id}>
+              <ActorImage
                 src={
                   profile_path
                     ? `https://image.tmdb.org/t/p/w200${profile_path}`
                     : defaultImg
                 }
                 alt={name}
-                className="actor-image"
-                style={{ width: '300px' }}
               />
-              <div className="actor-details">
-                <h3 className="actor-name">{name}</h3>
-                <p className="actor-character">Character: {character}</p>
-              </div>
-            </div>
+              <ActorInfoContainer>
+                <ActorName>{name}</ActorName>
+                <ActorCharacter>Character: {character}</ActorCharacter>
+              </ActorInfoContainer>
+            </ActorContainer>
           );
         })}
-    </div>
+    </ActorCard>
   );
 }

@@ -1,6 +1,19 @@
 import { getMovieDetails } from 'helpers/API';
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
+import {
+  LinkBtnBack,
+  ContainerInfo,
+  ImgPoster,
+  TitleMovie,
+  UserScore,
+  OverView,
+  OverViewParagraph,
+  Genres,
+  GenresList,
+  GenresListItem,
+  AdditionalInfo,
+} from './MovieDetails.styled';
 
 export default function MovieDetails() {
   const [aboutMovie, setAboutMovie] = useState(null);
@@ -27,41 +40,53 @@ export default function MovieDetails() {
 
   return (
     <div>
+      <LinkBtnBack>Back</LinkBtnBack>
       {aboutMovie && (
-        <>
-          <img
+        <ContainerInfo>
+          <ImgPoster
             src={`https://image.tmdb.org/t/p/w200${aboutMovie.poster_path}`}
             alt=""
           />
-          <h1>
-            {aboutMovie.title ??
-              aboutMovie.original_name ??
-              aboutMovie.name ??
-              aboutMovie.original_title}
-          </h1>
-          <p>User Score: {Math.ceil(aboutMovie.vote_average * 10)}%</p>
-          <h2>Overview</h2>
-          <p>{aboutMovie.overview ?? 'No overview available'}</p>
-          <h2>Genres</h2>
-          <ul>
-            {aboutMovie.genres ? (
-              aboutMovie.genres.map(genre => {
-                return <li key={genre.id}>{genre.name}</li>;
-              })
-            ) : (
-              <li>No genres available</li>
-            )}
-          </ul>
-        </>
+          <>
+            <TitleMovie>
+              {aboutMovie.title ??
+                aboutMovie.original_name ??
+                aboutMovie.name ??
+                aboutMovie.original_title}
+            </TitleMovie>
+            <UserScore>
+              User Score: {Math.ceil(aboutMovie.vote_average * 10)}%
+            </UserScore>
+            <OverView>Overview</OverView>
+            <OverViewParagraph>
+              {aboutMovie.overview ?? 'No overview available'}
+            </OverViewParagraph>
+            <Genres>Genres</Genres>
+            <GenresList>
+              {aboutMovie.genres ? (
+                aboutMovie.genres.map(genre => {
+                  return (
+                    <GenresListItem key={genre.id}>{genre.name}</GenresListItem>
+                  );
+                })
+              ) : (
+                <li>No genres available</li>
+              )}
+            </GenresList>
+          </>
+        </ContainerInfo>
       )}
-      <ul>
-        <li>
-          <NavLink to={`/Movie/${params.movieId}/Cast`}>Cast</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/Movie/${params.movieId}/Reviews`}>Reviews</NavLink>
-        </li>
-      </ul>
+      <div>
+        <AdditionalInfo>Additional informtaion</AdditionalInfo>
+        <ul>
+          <li>
+            <NavLink to={`/Movie/${params.movieId}/Cast`}>Cast</NavLink>
+          </li>
+          <li>
+            <NavLink to={`/Movie/${params.movieId}/Reviews`}>Reviews</NavLink>
+          </li>
+        </ul>
+      </div>
       <Outlet />
     </div>
   );
