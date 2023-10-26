@@ -27,9 +27,7 @@ export default function MovieDetails() {
   const params = useParams();
 
   const localLocation = useLocation();
-  const backLinkLocationRef = useRef(
-    localLocation.state?.from ?? `/Movie/${params.movieId}`
-  );
+  const backLinkLocationRef = useRef(localLocation.state?.from ?? `/`);
 
   useEffect(() => {
     if (!params.movieId) {
