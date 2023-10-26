@@ -1,6 +1,6 @@
 import MovieList from 'components/MoviesList/MoviesList';
 import { getMovieGenres } from 'helpers/API';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Genre() {
   const [genresData, setGenresData] = useState([]);

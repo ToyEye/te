@@ -1,5 +1,5 @@
 import { getMovieDetails } from 'helpers/API';
-import { createContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 
 import {
@@ -26,7 +26,7 @@ export default function MovieDetails() {
   const [isNotFound, setIsNotFound] = useState();
 
   // ID GENRES
-  const [genreId, setGenreId] = useState(null);
+  // const [genreId, setGenreId] = useState(null);
 
   // console.log(genreId);
   const params = useParams();
