@@ -37,7 +37,6 @@ export default function MovieDetails() {
         setAboutMovie(detailInfo);
       } catch (err) {
         setIsNotFound(true);
-        console.log(err);
       }
     };
 
@@ -47,7 +46,6 @@ export default function MovieDetails() {
   if (isNotFound) {
     return <NotFoundPage />;
   }
-  // console.log(params.movieId);
 
   return (
     <div style={{ padding: '20px' }}>
