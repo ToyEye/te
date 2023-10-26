@@ -17,7 +17,7 @@ const ActorContainer = styled.div`
 
 const ActorImage = styled.img`
   display: block;
-  width: 250px;
+  width: 200px;
 
   border-radius: 5%;
   object-fit: cover;
@@ -31,13 +31,13 @@ const ActorInfoContainer = styled.div`
 const ActorName = styled.h3`
   margin-bottom: 8px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 `;
 
 const ActorCharacter = styled.p`
   text-align: center;
-  font-size: 14px;
+  font-size: 10px;
   color: #888;
 `;
 
