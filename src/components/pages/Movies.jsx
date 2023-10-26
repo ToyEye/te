@@ -11,9 +11,6 @@ export default function Movies() {
 
   const validQuery = searchParams.get('searchQuery') ?? '';
 
-  console.log(validQuery);
-  // console.log(moviesData);
-
   const handleSubmitForm = evt => {
     evt.preventDefault();
   };
@@ -30,7 +27,6 @@ export default function Movies() {
     const fetchedMovies = async () => {
       try {
         const fetchSearchMovie = await searchMovies(1, validQuery);
-        console.log(fetchSearchMovie.results);
         setMoviesData(fetchSearchMovie.results);
       } catch (err) {
         console.log(err);

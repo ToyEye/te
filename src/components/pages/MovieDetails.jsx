@@ -1,6 +1,6 @@
 import { getMovieDetails } from 'helpers/API';
 import { useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import {
   LinkBtnBack,
   ContainerInfo,
@@ -26,6 +26,8 @@ export default function MovieDetails() {
 
   const params = useParams();
 
+  const localLocation = useLocation();
+
   useEffect(() => {
     if (!params.movieId) {
       return;
@@ -49,7 +51,7 @@ export default function MovieDetails() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <LinkBtnBack to="/Home">Back</LinkBtnBack>
+      <LinkBtnBack to={localLocation.state}>Back</LinkBtnBack>
       {aboutMovie && (
         <ContainerInfo>
           <ImgPoster
