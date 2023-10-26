@@ -39,19 +39,18 @@ const ContainerInfo = styled.div`
   display: flex;
   column-gap: 16px;
 `;
-const ImgPosterContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+// const ImgPosterContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
 const ImgPoster = styled.img`
   display: block;
 
-  margin-right: 20px;
+  /* margin-right: 20px; */
   max-width: 200px;
-  height: auto;
 `;
 
 const TitleMovie = styled.h1`
@@ -104,10 +103,19 @@ const AdditionalInfoList = styled.ul`
 
 const AdditionalNavLink = styled(NavLink)`
   text-decoration: none;
-  color: black;
+  color: #000;
+
+  background-color: #ff8c00;
+
+  border: 1px solid #ff8c00;
+  border-radius: 8px;
   transition: color 250ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  text &:hover {
-    color: orange;
+
+  padding: 10px 20px;
+
+  &:hover {
+    color: #fff;
+    background-color: #ff9933;
   }
 `;
 
@@ -116,7 +124,6 @@ const AdditionalInfoListItem = styled.li``;
 export {
   LinkBtnBack,
   ContainerInfo,
-  ImgPosterContainer,
   ImgPoster,
   TitleMovie,
   UserScore,

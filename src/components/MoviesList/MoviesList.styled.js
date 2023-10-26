@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const ListUl = styled.ul`
+const ContainerListMovie = styled.div`
+  display: flex;
+`;
+
+const ListUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
   row-gap: 28px;
@@ -11,7 +15,22 @@ export const ListUl = styled.ul`
   margin-top: 25px;
 `;
 
-export const LinkMy = styled(Link)`
+const listItem = styled.li``;
+
+const ContainerPosterImg = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const PosterMovie = styled.img`
+  display: block;
+
+  width: 250px;
+`;
+
+const LinkMy = styled(Link)`
   display: flex;
   flex-direction: column;
   row-gap: 8px;
@@ -25,3 +44,5 @@ export const LinkMy = styled(Link)`
   text-decoration: none;
   color: black;
 `;
+
+export { ContainerListMovie, ListUl, ContainerPosterImg, PosterMovie, LinkMy };
