@@ -38,7 +38,7 @@ export default function Reviews() {
           );
         })
       ) : (
-        <div>We don't have aby reviews for this movie.</div>
+        <div>We don't have any reviews for this movie.</div>
       )}
     </div>
   );
