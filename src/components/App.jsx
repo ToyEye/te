@@ -2,12 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 
 // PAGES
 import Home from './pages/Home';
-import Cast from './Cast';
-import Reviews from './Reviews';
+import Cast from './Cast/Cast';
+import Reviews from './Reviews/Reviews';
 import Movies from './pages/Movies';
 import MovieDetails from './pages/MovieDetails';
 import NotFoundPage from './pages/NotFoundPage';
-import { HeaderLayout } from './HeaderLayout';
+import { HeaderLayout } from './HeaderLayout/HeaderLayout';
 
 // // STYLED
 // import styled from 'styled-components';

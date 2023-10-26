@@ -1,4 +1,4 @@
-import MovieList from 'components/MoviesList';
+import MovieList from 'components/MoviesList/MoviesList';
 import { searchMovies } from 'helpers/API';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';

@@ -49,7 +49,7 @@ export default function MovieDetails() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <LinkBtnBack>Back</LinkBtnBack>
+      <LinkBtnBack to="/Home">Back</LinkBtnBack>
       {aboutMovie && (
         <ContainerInfo>
           <ImgPoster
