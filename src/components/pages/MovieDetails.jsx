@@ -31,8 +31,6 @@ export default function MovieDetails() {
     localLocation.state?.from ?? `/Movie/${params.movieId}`
   );
 
-  console.log(backLinkLocationRef);
-
   useEffect(() => {
     if (!params.movieId) {
       return;
@@ -53,8 +51,6 @@ export default function MovieDetails() {
   if (isNotFound) {
     return <NotFoundPage />;
   }
-
-  console.log(localLocation);
 
   return (
     <div style={{ padding: '20px' }}>

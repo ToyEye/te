@@ -20,15 +20,20 @@ export default function Movies() {
 
   const handleSubmitForm = evt => {
     evt.preventDefault();
-  };
-
-  const handleChange = evt => {
-    const inputValue = evt.target.value;
+    const inputValue = evt.target.elements.queryValueSearch.value;
 
     params.set('query', inputValue);
 
     setParams(params);
   };
+
+  // const handleChange = evt => {
+  //   const inputValue = evt.target.value;
+
+  //   params.set('query', inputValue);
+
+  //   setParams(params);
+  // };
 
   useEffect(() => {
     if (!query) return;
@@ -50,9 +55,10 @@ export default function Movies() {
       <form onSubmit={handleSubmitForm}>
         <input
           type="text"
-          value={query}
+          // value={query}
           placeholder="Введіть пошуковий запит"
-          onChange={handleChange}
+          name="queryValueSearch"
+          // onChange={handleChange}
         />
         <button type="submit">Search</button>
       </form>

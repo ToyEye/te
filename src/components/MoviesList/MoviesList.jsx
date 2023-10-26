@@ -6,7 +6,6 @@ const defaultImg =
 
 export default function MovieList({ trendMovies }) {
   const location = useLocation();
-  console.log(location);
 
   return (
     <ListUl>
