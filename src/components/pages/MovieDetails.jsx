@@ -47,7 +47,7 @@ export default function MovieDetails() {
             src={`https://image.tmdb.org/t/p/w200${aboutMovie.poster_path}`}
             alt=""
           />
-          <>
+          <div>
             <TitleMovie>
               {aboutMovie.title ??
                 aboutMovie.original_name ??
@@ -73,7 +73,7 @@ export default function MovieDetails() {
                 <li>No genres available</li>
               )}
             </GenresList>
-          </>
+          </div>
         </ContainerInfo>
       )}
       <div>
