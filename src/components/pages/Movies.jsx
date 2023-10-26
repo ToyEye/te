@@ -3,13 +3,18 @@ import { searchMovies } from 'helpers/API';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+import toast from 'react-hot-toast';
+
 export default function Movies() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [params, setParams] = useSearchParams();
+  const query = params.get('query') ?? '';
 
   const [moviesData, setMoviesData] = useState([]);
   // const [page, setPage] = useState(1);
 
-  const validQuery = searchParams.get('searchQuery') ?? '';
+  // if (query.trim() === '') {
+  //   return toast.error('Ведіть пошуковий запит!');
+  // }
 
   const handleSubmitForm = evt => {
     evt.preventDefault();
@@ -18,15 +23,17 @@ export default function Movies() {
   const handleChange = evt => {
     const inputValue = evt.target.value;
 
-    setSearchParams({ searchQuery: inputValue });
+    params.set('query', inputValue);
+
+    setParams(params);
   };
 
   useEffect(() => {
-    if (!validQuery) return;
+    if (!query) return;
 
     const fetchedMovies = async () => {
       try {
-        const fetchSearchMovie = await searchMovies(1, validQuery);
+        const fetchSearchMovie = await searchMovies(1, query);
         setMoviesData(fetchSearchMovie.results);
       } catch (err) {
         console.log(err);
@@ -34,14 +41,14 @@ export default function Movies() {
     };
 
     fetchedMovies();
-  }, [validQuery]);
+  }, [query]);
 
   return (
     <>
       <form onSubmit={handleSubmitForm}>
         <input
           type="text"
-          value={validQuery}
+          value={query}
           placeholder="Введіть пошуковий запит"
           onChange={handleChange}
         />
