@@ -5,20 +5,20 @@ import { useEffect, useState } from 'react';
 export default function Home() {
   const [trendMovies, setTrendMovies] = useState([]);
 
-  const fetchData = async () => {
-    try {
-      const trend = await getTrending();
-
-      setTrendMovies(trend.results);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
     if (!trendMovies) {
       return;
     }
+
+    const fetchData = async () => {
+      try {
+        const trend = await getTrending();
+
+        setTrendMovies(trend.results);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
     fetchData();
   }, [trendMovies]);
