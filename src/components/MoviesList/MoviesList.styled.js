@@ -13,6 +13,7 @@ const ListUl = styled.ul`
   width: 1314px;
   margin: 0 auto;
   margin-top: 25px;
+  /* background-color: blue; */
 `;
 
 const listItem = styled.li``;
@@ -26,7 +27,6 @@ const ContainerPosterImg = styled.div`
 
 const PosterMovie = styled.img`
   display: block;
-
   width: 250px;
 `;
 

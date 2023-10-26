@@ -35,7 +35,7 @@ export default function MovieList({ trendMovies }) {
                     to={`/Movie/${id}`}
                     state={{ from: location }}
                   >
-                    <ContainerListMovie>
+                    <ContainerPosterImg>
                       <PosterMovie
                         src={
                           poster_path
@@ -44,7 +44,7 @@ export default function MovieList({ trendMovies }) {
                         }
                         alt={displayTitle}
                       />
-                    </ContainerListMovie>
+                    </ContainerPosterImg>
 
                     {displayTitle}
                   </LinkMy>
