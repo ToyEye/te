@@ -13,10 +13,11 @@ const ListUl = styled.ul`
   width: 1314px;
   margin: 0 auto;
   margin-top: 25px;
-  /* background-color: blue; */
 `;
 
-const listItem = styled.li``;
+const listItem = styled.li`
+  background-color: blue;
+`;
 
 const ContainerPosterImg = styled.div`
   display: flex;
@@ -43,6 +44,20 @@ const LinkMy = styled(Link)`
 
   text-decoration: none;
   color: black;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
 `;
 
-export { ContainerListMovie, ListUl, ContainerPosterImg, PosterMovie, LinkMy };
+export {
+  ContainerListMovie,
+  ListUl,
+  listItem,
+  ContainerPosterImg,
+  PosterMovie,
+  LinkMy,
+};
