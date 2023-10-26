@@ -1,6 +1,6 @@
 import { getMovieDetails } from 'helpers/API';
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import {
   LinkBtnBack,
   ContainerInfo,
