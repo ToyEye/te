@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { HeaderLink, ListUlHeader, Header } from './HeaderLayout.styled';
 import { Suspense } from 'react';
+import Loader from 'components/Loader/DNA';
 
 export default function HeaderLayout() {
   return (
@@ -17,7 +18,7 @@ export default function HeaderLayout() {
           </ListUlHeader>
         </nav>
       </Header>
-      <Suspense fallback={'LOADING PAGE...'}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </>

@@ -11,6 +11,7 @@ const MovieDetails = lazy(() => import('./pages/MovieDetails'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const Genre = lazy(() => import('./pages/Genre'));
 const HeaderLayout = lazy(() => import('./HeaderLayout/HeaderLayout'));
+
 // // STYLED
 // import styled from 'styled-components';
 
