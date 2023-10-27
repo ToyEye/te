@@ -85,6 +85,18 @@ const GenresListItem = styled.li`
   margin-bottom: 5px;
 `;
 
+const LinkGenres = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+
+  border-radius: 4px;
+  background-color: #ffe8cc;
+
+  &:hover {
+    background-color: #ffd700;
+  }
+`;
+
 const AdditionalInfo = styled.h3`
   display: flex;
   align-items: center;
@@ -132,6 +144,7 @@ export {
   Genres,
   GenresList,
   GenresListItem,
+  LinkGenres,
   AdditionalInfo,
   AdditionalInfoList,
   AdditionalNavLink,

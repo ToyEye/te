@@ -20,6 +20,7 @@ import {
   GenresList,
   GenresListItem,
   AdditionalInfo,
+  LinkGenres,
   AdditionalInfoList,
   AdditionalNavLink,
   AdditionalInfoListItem,
@@ -97,13 +98,13 @@ export default function MovieDetails() {
                 aboutMovie.genres.map(genre => {
                   return (
                     <GenresListItem key={genre.id}>
-                      <Link
+                      <LinkGenres
                         to="/GenreFilter"
                         key={genre.id}
                         onClick={() => handleIdClick(genre.id)}
                       >
-                        {genre.name}
-                      </Link>
+                        #{genre.name}
+                      </LinkGenres>
                     </GenresListItem>
                   );
                 })

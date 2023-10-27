@@ -1,6 +1,7 @@
 import MovieList from 'components/MoviesList/MoviesList';
 import { getMovieGenres } from 'helpers/API';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function GenreFilter() {
   const [genreData, setGenreData] = useState([]);

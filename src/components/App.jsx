@@ -19,11 +19,11 @@ export const App = () => {
         <Route path="/" element={<HeaderLayout />}>
           <Route index element={<Home />} />
           <Route path="Movie" element={<Movies />} />
-          <Route path="GenreFilter" element={<GenreFilter />} />
           <Route path="Movie/:movieId" element={<MovieDetails />}>
             <Route path="Cast" element={<Cast />} />
             <Route path="Reviews" element={<Reviews />} />
           </Route>
+          <Route path="GenreFilter" element={<GenreFilter />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
