@@ -8,7 +8,7 @@ export default function Loader() {
       width="80"
       ariaLabel="dna-loading"
       wrapperStyle={{ margin: '0 auto', display: 'block' }}
-      //   wrapperClass="dna-wrapper"
+      wrapperClass="dna-wrapper"
     />
   );
 }

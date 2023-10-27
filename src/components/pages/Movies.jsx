@@ -1,16 +1,28 @@
 import MovieList from 'components/MoviesList/MoviesList';
 import { searchMovies } from 'helpers/API';
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-import FormSearching from 'components/Form/Form';
 // import toast from 'react-hot-toast';
 
 export default function Movies() {
-  const [moviesData, setMoviesData] = useState([]);
-  const [query, setQuery] = useState('');
+  const [params, setParams] = useSearchParams();
+  const query = params.get('query') ?? '';
 
-  const querySearchMovies = queryValue => {
-    setQuery(queryValue);
+  const [moviesData, setMoviesData] = useState([]);
+  // const [page, setPage] = useState(1);
+
+  // if (query.trim() === '') {
+  //   return toast.error('Ведіть пошуковий запит!');
+  // }
+
+  const handleSubmitForm = evt => {
+    evt.preventDefault();
+    const inputValue = evt.target.elements.queryValueSearch.value;
+
+    params.set('query', inputValue);
+
+    setParams(params);
   };
 
   useEffect(() => {
@@ -30,7 +42,17 @@ export default function Movies() {
 
   return (
     <div style={{ margin: '0 auto', textAlign: 'center' }}>
-      <FormSearching querySearchMovies={querySearchMovies} />
+      <form onSubmit={handleSubmitForm}>
+        <input
+          type="text"
+          // value={query}
+          placeholder="Введіть пошуковий запит"
+          name="queryValueSearch"
+          // onChange={handleChange}
+          style={{ marginRight: '10px' }}
+        />
+        <button type="submit">Search</button>
+      </form>
       <MovieList trendMovies={moviesData} />
     </div>
   );
