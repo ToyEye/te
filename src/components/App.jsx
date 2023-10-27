@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 // PAGES
-// import Home from './pages/Home';
 const Home = lazy(() => import('./pages/Home'));
 const Cast = lazy(() => import('./Cast/Cast'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));
@@ -11,7 +11,6 @@ const MovieDetails = lazy(() => import('./pages/MovieDetails'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const Genre = lazy(() => import('./pages/Genre'));
 const HeaderLayout = lazy(() => import('./HeaderLayout/HeaderLayout'));
-
 // // STYLED
 // import styled from 'styled-components';
 
@@ -39,18 +38,17 @@ export const App = () => {
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
+        <Toaster
+          toastOptions={{
+            className: '',
+            style: {
+              border: '1px solid #713200',
+              padding: '16px',
+              color: '#713200',
+            },
+          }}
+        />
       </Suspense>
     </>
   );
 };
-
-// <Toaster
-//   toastOptions={{
-//     className: '',
-//     style: {
-//       border: '1px solid #713200',
-//       padding: '16px',
-//       color: '#713200',
-//     },
-//   }}
-// />;
