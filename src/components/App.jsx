@@ -23,7 +23,7 @@ export const App = () => {
             <Route path="Cast" element={<Cast />} />
             <Route path="Reviews" element={<Reviews />} />
           </Route>
-          <Route path="GenreFilter" element={<GenreFilter />} />
+          <Route path="GenreFilter/:GenreId" element={<GenreFilter />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

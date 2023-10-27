@@ -36,7 +36,6 @@ export default function MovieDetails() {
   const [searchParams, setSearchParams] = useSearchParams();
   const idGenre = searchParams.get('id');
 
-  console.log(idGenre);
   const params = useParams();
 
   const localLocation = useLocation();
@@ -98,7 +97,7 @@ export default function MovieDetails() {
                   return (
                     <GenresListItem key={genre.id}>
                       <LinkGenres
-                        to="/GenreFilter"
+                        to={`/GenreFilter/${genre.id}`}
                         key={genre.id}
                         onClick={() => handleIdClick(genre.id)}
                       >
