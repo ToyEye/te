@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { HeaderLink, ListUlHeader, Header } from './HeaderLayout.styled';
 
-const HeaderLayout = () => {
+export default function HeaderLayout() {
   return (
     <>
       <Header>
@@ -20,6 +20,4 @@ const HeaderLayout = () => {
       <Outlet />
     </>
   );
-};
-
-export { HeaderLayout };
+}
