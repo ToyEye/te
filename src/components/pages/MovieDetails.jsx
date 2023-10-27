@@ -6,9 +6,10 @@ import {
   useParams,
   useSearchParams,
 } from 'react-router-dom';
+import { ButtonToBack } from 'components/BackButton/BackButton';
 
 import {
-  LinkBtnBack,
+  // LinkBtnBack,
   ContainerInfo,
   ImgPoster,
   TitleMovie,
@@ -31,8 +32,6 @@ export default function MovieDetails() {
   const [aboutMovie, setAboutMovie] = useState(null);
   const [isNotFound, setIsNotFound] = useState();
 
-  // ID GENRES
-  // const [genreId, setGenreId] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const idGenre = searchParams.get('id');
 
@@ -68,7 +67,8 @@ export default function MovieDetails() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <LinkBtnBack to={backLinkLocationRef.current}>Back</LinkBtnBack>
+      {/* <LinkBtnBack to={backLinkLocationRef.current}>Back</LinkBtnBack> */}
+      <ButtonToBack location={backLinkLocationRef.current} />
       {aboutMovie && (
         <ContainerInfo>
           <ImgPoster
