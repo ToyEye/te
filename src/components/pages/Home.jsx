@@ -7,14 +7,19 @@ import { getTrending } from 'helpers/API';
 export default function Home() {
   const [trendMovies, setTrendMovies] = useState([]);
   const [page, setPage] = useState(1);
+  const [isAvailableData, setIsAvailableData] = useState(false);
 
   const handleLoadMore = () => {
     setPage(prevPage => prevPage + 1);
   };
 
   useEffect(() => {
+    // if (trendMovies.length !== 0) return;
+
     const fetchData = async () => {
       try {
+        setIsAvailableData(false);
+
         const trend = await getTrending(page);
 
         setTrendMovies(prevTrend => {
@@ -25,6 +30,8 @@ export default function Home() {
         });
       } catch (err) {
         console.log(err);
+      } finally {
+        setIsAvailableData(true);
       }
     };
 
@@ -35,7 +42,7 @@ export default function Home() {
     <div>
       <h2 style={{ textAlign: 'center' }}>Trending today</h2>
       <MovieList trendMovies={trendMovies} />
-      <ButtonLoadMore handleLoadMore={handleLoadMore} />
+      {setIsAvailableData && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
     </div>
   );
 }
