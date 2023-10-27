@@ -16,7 +16,6 @@ const Person = () => {
         setDetails(detailsPers);
       } catch (err) {
         console.log(err);
-      } finally {
       }
     };
 

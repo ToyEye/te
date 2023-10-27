@@ -2,8 +2,8 @@ import { ButtonToBack } from 'components/BackButton/BackButton';
 import { ButtonLoadMore } from 'components/LoadMore/LoadMore';
 import MovieList from 'components/MoviesList/MoviesList';
 import { getMovieGenres } from 'helpers/API';
-import { useEffect, useRef, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function GenreFilter() {
   const [genreData, setGenreData] = useState([]);
@@ -32,7 +32,7 @@ export default function GenreFilter() {
     };
 
     fetchGenre();
-  }, []);
+  }, [genreId]);
   return (
     <div>
       <ButtonToBack location={'/'} />
