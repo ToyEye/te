@@ -49,13 +49,13 @@ const Person = () => {
       </ul> */}
       <ul>
         <li>
-          <strong>Birthday:</strong> {birthday}
+          <strong>Birthday:</strong> {birthday ?? '-'}
         </li>
         <li>
           <strong>Gender:</strong> {gender === 2 ? 'Male' : 'Female'}
         </li>
         <li>
-          <strong>Place of Birth:</strong> {place_of_birth}
+          <strong>Place of Birth:</strong> {place_of_birth ?? '-'}
         </li>
         <li>
           <strong>Known for:</strong> {known_for_department}
