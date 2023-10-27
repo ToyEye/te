@@ -23,7 +23,6 @@ export default function Home() {
           }
           return [...prevTrend, ...trend.results];
         });
-        // setTrendMovies(trend.results);
       } catch (err) {
         console.log(err);
       }
