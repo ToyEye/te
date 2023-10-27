@@ -32,7 +32,7 @@ export default function GenreFilter() {
     };
 
     fetchGenre();
-  }, [genreId]);
+  }, [genreId, page]);
   return (
     <div>
       <ButtonToBack location={'/'} />
