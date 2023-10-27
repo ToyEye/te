@@ -1,3 +1,4 @@
+import { ButtonLoadMore } from 'components/LoadMore/LoadMore';
 import MovieList from 'components/MoviesList/MoviesList';
 import { getMovieGenres } from 'helpers/API';
 import { useEffect, useState } from 'react';
@@ -7,13 +8,24 @@ export default function GenreFilter() {
   const [genreData, setGenreData] = useState([]);
   const paramsGenre = useParams();
   const genreId = paramsGenre.GenreId;
-  console.log(genreId);
+  const [page, setPage] = useState(1);
+
+  const handleLoadMore = () => {
+    setPage(prevPage => prevPage + 1);
+    console.log('sd');
+  };
 
   useEffect(() => {
     const fetchGenre = async () => {
       try {
-        const fetchedGenreMovies = await getMovieGenres(1, genreId);
-        setGenreData(fetchedGenreMovies.results);
+        const fetchedGenreMovies = await getMovieGenres(page, genreId);
+
+        setGenreData(prevGenre => {
+          if (page === 1) {
+            return [...fetchedGenreMovies.results];
+          }
+          return [...prevGenre, ...fetchedGenreMovies.results];
+        });
       } catch (err) {
         console.log(err);
       }
@@ -26,6 +38,7 @@ export default function GenreFilter() {
     <div>
       <button>Back</button>
       <MovieList trendMovies={genreData} />
+      <ButtonLoadMore handleLoadMore={handleLoadMore} />
     </div>
   );
 }
