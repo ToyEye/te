@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import { Toaster } from 'react-hot-toast';
+import { Person } from './Person/Person';
 
 // PAGES
 const Home = lazy(() => import('./pages/Home'));
@@ -20,10 +21,13 @@ export const App = () => {
           <Route index element={<Home />} />
           <Route path="Movie" element={<Movies />} />
           <Route path="Movie/:movieId" element={<MovieDetails />}>
-            <Route path="Cast" element={<Cast />} />
+            <Route path="Cast" element={<Cast />}>
+              <Route path="Person/:PersonId" element={<Person />} />
+            </Route>
             <Route path="Reviews" element={<Reviews />} />
           </Route>
           <Route path="GenreFilter/:GenreId" element={<GenreFilter />} />
+
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

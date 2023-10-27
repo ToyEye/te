@@ -49,7 +49,7 @@ const getMovieGenres = async (page = 1, genresID = 14) => {
   return response.data;
 };
 
-const getDetailPerson = async idPerson => {
+const getDetailPerson = async (idPerson = 2144) => {
   const response = await axios.get(`person/${idPerson}?language=en-US`);
 
   return response.data;

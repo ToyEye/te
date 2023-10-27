@@ -1,6 +1,6 @@
 import { getMovieCredits } from 'helpers/API';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
   ActorCard,
   ActorContainer,
@@ -47,20 +47,22 @@ export default function Cast() {
     <ActorCard>
       {aboutCasts.map(({ id, profile_path, name, character }) => {
         return (
-          <ActorContainer key={id}>
-            <ActorImage
-              src={
-                profile_path
-                  ? `https://image.tmdb.org/t/p/w200${profile_path}`
-                  : defaultImg
-              }
-              alt={name}
-            />
-            <ActorInfoContainer>
-              <ActorName>{name}</ActorName>
-              <ActorCharacter>Character: {character}</ActorCharacter>
-            </ActorInfoContainer>
-          </ActorContainer>
+          <Link key={id} to={`/Person/${id}`}>
+            <ActorContainer key={id}>
+              <ActorImage
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w200${profile_path}`
+                    : defaultImg
+                }
+                alt={name}
+              />
+              <ActorInfoContainer>
+                <ActorName>{name}</ActorName>
+                <ActorCharacter>Character: {character}</ActorCharacter>
+              </ActorInfoContainer>
+            </ActorContainer>
+          </Link>
         );
       })}
     </ActorCard>

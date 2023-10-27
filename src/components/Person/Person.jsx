@@ -1,32 +1,31 @@
 import { getDetailPerson } from 'helpers/API';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Person = () => {
-  const [,] = useState([]);
-  const [page, setPage] = useState(1);
+  const [details, setDetails] = useState([]);
+  console.log(details);
+  const params = useParams();
+  console.log(params);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchPersonInfo = async () => {
       try {
-        const trend = await getTrending(page);
+        const detailsPers = await getDetailPerson(2144);
 
-        setTrendMovies(prevTrend => {
-          if (page === 1) {
-            return [...trend.results];
-          }
-          return [...prevTrend, ...trend.results];
-        });
+        setDetails(detailsPers);
       } catch (err) {
         console.log(err);
       } finally {
       }
     };
 
-    fetchData();
-  }, [page]);
+    fetchPersonInfo();
+  }, []);
 
   return (
     <div>
-      <h2>Tobin Bell</h2>
+      {/* <h2>Tobin Bell</h2>
       <img
         src="http://www.officialtobinbell.com/q21uuCtTioIVcGc3a1Q0DpdcNMO.jpg"
         alt="Tobin Bell"
@@ -61,7 +60,7 @@ const Person = () => {
         <li>
           <strong>Known for Department:</strong> Acting
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 };

@@ -1,11 +1,6 @@
 import { getMovieDetails } from 'helpers/API';
 import { useEffect, useRef, useState } from 'react';
-import {
-  Outlet,
-  useLocation,
-  useParams,
-  useSearchParams,
-} from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { ButtonToBack } from 'components/BackButton/BackButton';
 
 import {
