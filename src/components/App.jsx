@@ -9,19 +9,8 @@ const Reviews = lazy(() => import('./Reviews/Reviews'));
 const Movies = lazy(() => import('./pages/Movies'));
 const MovieDetails = lazy(() => import('./pages/MovieDetails'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
-const Genre = lazy(() => import('./pages/Genre'));
+const GenreFilter = lazy(() => import('./pages/GenreFilter'));
 const HeaderLayout = lazy(() => import('./HeaderLayout/HeaderLayout'));
-
-// // STYLED
-// import styled from 'styled-components';
-
-// const StyledLink = styled(NavLink)`
-//   color: black;
-
-//   &.active {
-//     color: orange;
-//   }
-// `;
 
 export const App = () => {
   return (
@@ -30,7 +19,7 @@ export const App = () => {
         <Route path="/" element={<HeaderLayout />}>
           <Route index element={<Home />} />
           <Route path="Movie" element={<Movies />} />
-          <Route path="Genre" element={<Genre />} />
+          <Route path="GenreFilter" element={<GenreFilter />} />
           <Route path="Movie/:movieId" element={<MovieDetails />}>
             <Route path="Cast" element={<Cast />} />
             <Route path="Reviews" element={<Reviews />} />

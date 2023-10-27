@@ -2,14 +2,14 @@ import MovieList from 'components/MoviesList/MoviesList';
 import { getMovieGenres } from 'helpers/API';
 import { useEffect, useState } from 'react';
 
-export default function Genre() {
-  const [genresData, setGenresData] = useState([]);
+export default function GenreFilter() {
+  const [genreData, setGenreData] = useState([]);
 
   useEffect(() => {
     const fetchGenre = async () => {
       try {
         const fetchedGenreMovies = await getMovieGenres(14, 1);
-        setGenresData(fetchedGenreMovies.results);
+        setGenreData(fetchedGenreMovies.results);
       } catch (err) {
         console.log(err);
       }
@@ -22,7 +22,7 @@ export default function Genre() {
     <div>
       <button>Back</button>
 
-      <MovieList trendMovies={genresData} />
+      <MovieList trendMovies={genreData} />
     </div>
   );
 }

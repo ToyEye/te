@@ -17,7 +17,12 @@ export default function Home() {
       try {
         const trend = await getTrending(page);
 
-        setTrendMovies(prevTrend => [...prevTrend, ...trend.results]);
+        setTrendMovies(prevTrend => {
+          if (page === 1) {
+            return [...trend.results];
+          }
+          return [...prevTrend, ...trend.results];
+        });
         // setTrendMovies(trend.results);
       } catch (err) {
         console.log(err);

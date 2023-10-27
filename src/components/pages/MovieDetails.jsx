@@ -1,6 +1,12 @@
 import { getMovieDetails } from 'helpers/API';
 import { useEffect, useRef, useState } from 'react';
-import { Outlet, useLocation, useParams } from 'react-router-dom';
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useParams,
+  useSearchParams,
+} from 'react-router-dom';
 
 import {
   LinkBtnBack,
@@ -27,7 +33,10 @@ export default function MovieDetails() {
 
   // ID GENRES
   // const [genreId, setGenreId] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const idGenre = searchParams.get('id');
 
+  console.log(idGenre);
   // console.log(genreId);
   const params = useParams();
 
@@ -56,7 +65,7 @@ export default function MovieDetails() {
   }
 
   const handleIdClick = selectedId => {
-    // setGenreId(selectedId);
+    setSearchParams({ id: selectedId });
   };
 
   return (
@@ -89,12 +98,12 @@ export default function MovieDetails() {
                 aboutMovie.genres.map(genre => {
                   return (
                     <GenresListItem key={genre.id}>
-                      <button
+                      <Link
                         key={genre.id}
                         onClick={() => handleIdClick(genre.id)}
                       >
                         {genre.name}
-                      </button>
+                      </Link>
                     </GenresListItem>
                   );
                 })
