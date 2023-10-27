@@ -8,7 +8,7 @@ export default function GenreFilter() {
   useEffect(() => {
     const fetchGenre = async () => {
       try {
-        const fetchedGenreMovies = await getMovieGenres(14, 1);
+        const fetchedGenreMovies = await getMovieGenres(1, 14);
         setGenreData(fetchedGenreMovies.results);
       } catch (err) {
         console.log(err);
@@ -21,6 +21,7 @@ export default function GenreFilter() {
   return (
     <div>
       <button>Back</button>
+      <span>добавити в адр рядок /GenreFilter</span>
       <MovieList trendMovies={genreData} />
     </div>
   );
