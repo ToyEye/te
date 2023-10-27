@@ -27,10 +27,7 @@ export default function Movies() {
 
     const fetchedMovies = async () => {
       try {
-        const fetchSearchMovie = await searchMovies({
-          page: page,
-          query: query,
-        });
+        const fetchSearchMovie = await searchMovies(page, query);
 
         const totalResults = fetchSearchMovie.results;
 
