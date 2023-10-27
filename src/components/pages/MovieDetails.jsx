@@ -32,9 +32,6 @@ export default function MovieDetails() {
   const [aboutMovie, setAboutMovie] = useState(null);
   const [isNotFound, setIsNotFound] = useState();
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const idGenre = searchParams.get('id');
-
   const params = useParams();
 
   const localLocation = useLocation();
@@ -60,10 +57,6 @@ export default function MovieDetails() {
   if (isNotFound) {
     return <NotFoundPage />;
   }
-
-  const handleIdClick = selectedId => {
-    setSearchParams({ id: selectedId });
-  };
 
   return (
     <div style={{ padding: '20px' }}>
@@ -99,7 +92,6 @@ export default function MovieDetails() {
                       <LinkGenres
                         to={`/GenreFilter/${genre.id}`}
                         key={genre.id}
-                        onClick={() => handleIdClick(genre.id)}
                       >
                         #{genre.name}
                       </LinkGenres>
