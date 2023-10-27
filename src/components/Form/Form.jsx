@@ -1,32 +1,27 @@
-import { useEffect, useState } from 'react';
-// import { useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-const FormSearching = ({ onSearch }) => {
-  //   const SubmitForm = evt => {
-  //     evt.preventDefault();
-  //     const inputValue = evt.target.elements.queryValueSearch.value.toLowerCase();
+const FormSearching = ({ querySearchMovies }) => {
+  const [params, setParams] = useSearchParams();
+  const query = params.get('query') ?? '';
 
-  //     params.set('query', inputValue);
-  //     setParams(params);
-  //   };
-
-  const [searchValue, setSearchValue] = useState('');
-
-  const handleInputChange = evt => {
-    setSearchValue(evt.target.value.toLowerCase());
-  };
+  useEffect(() => {
+    querySearchMovies(query);
+  }, [query, querySearchMovies]);
 
   const handleSubmitForm = evt => {
     evt.preventDefault();
-    onSearch(searchValue);
+    const inputValue = evt.target.elements.queryValueSearch.value.toLowerCase();
+
+    params.set('query', inputValue);
+    setParams(params);
   };
 
   return (
     <form onSubmit={handleSubmitForm}>
       <input
-        onChange={handleInputChange}
         type="text"
-        value={searchValue}
+        // value={query}
         placeholder="Введіть пошуковий запит"
         name="queryValueSearch"
         style={{ marginRight: '10px' }}
