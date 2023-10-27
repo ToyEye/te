@@ -37,7 +37,6 @@ export default function MovieDetails() {
   const idGenre = searchParams.get('id');
 
   console.log(idGenre);
-  // console.log(genreId);
   const params = useParams();
 
   const localLocation = useLocation();
