@@ -25,8 +25,10 @@ const getMovieReviews = async (movieId, page = 1) => {
   return response.data;
 };
 
-const getTrending = async () => {
-  const response = await axios.get(`trending/all/day?language=en-US`);
+const getTrending = async page => {
+  const response = await axios.get(
+    `trending/all/day?language=en-US&page=${page}`
+  );
 
   return response.data;
 };
