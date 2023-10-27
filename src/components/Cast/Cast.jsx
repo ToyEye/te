@@ -17,7 +17,6 @@ const defaultImg =
 export default function Cast() {
   const [aboutCasts, setAboutCasts] = useState([]);
   const params = useParams();
-
   // const [isError, setIsError] = useState(false);
 
   useEffect(() => {
@@ -47,7 +46,11 @@ export default function Cast() {
     <ActorCard>
       {aboutCasts.map(({ id, profile_path, name, character }) => {
         return (
-          <Link key={id} to={`/Person/${id}`}>
+          <Link
+            key={id}
+            to={`/Person/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
             <ActorContainer key={id}>
               <ActorImage
                 src={

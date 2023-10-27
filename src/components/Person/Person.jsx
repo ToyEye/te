@@ -6,12 +6,12 @@ const Person = () => {
   const [details, setDetails] = useState([]);
   console.log(details);
   const params = useParams();
-  console.log(params);
+  const idPerson = params.PersonId;
 
   useEffect(() => {
     const fetchPersonInfo = async () => {
       try {
-        const detailsPers = await getDetailPerson(2144);
+        const detailsPers = await getDetailPerson(idPerson);
 
         setDetails(detailsPers);
       } catch (err) {
@@ -21,46 +21,50 @@ const Person = () => {
     };
 
     fetchPersonInfo();
-  }, []);
+  }, [idPerson, details]);
+  const {
+    id,
+    biography,
+    also_known_as,
+    birthday,
+    deathday,
+    gender,
+    known_for_department,
+    name,
+    place_of_birth,
+    profile_path,
+  } = details;
 
   return (
-    <div>
-      {/* <h2>Tobin Bell</h2>
-      <img
-        src="http://www.officialtobinbell.com/q21uuCtTioIVcGc3a1Q0DpdcNMO.jpg"
-        alt="Tobin Bell"
-      />
+    <div key={id}>
+      <h2>{name}</h2>
+      <img src={`https://image.tmdb.org/t/p/w200${profile_path}`} alt={name} />
       <h3>Biography</h3>
-      <p>
-        Joseph Henry Tobin Jr. (born August 7, 1942), known professionally as
-        Tobin Bell, is an American actor and producer. He has appeared in a
-        number of television shows and films, but is most recognized for his
-        role as John Kramer / Jigsaw in the Saw films franchise.
-      </p>
-      <h2>Personal Information</h2>
+      <p>{biography}</p>
+      <h3>Personal Information</h3>
+      <h4>Also Known As: </h4>
+      <ul>
+        {also_known_as.map(known => {
+          return <li>{known}</li>;
+        })}
+      </ul>
       <ul>
         <li>
-          <strong>Also Known As:</strong>
-          <ul>
-            <li>Joseph H. Tobin, Jr.</li>
-            <li>Тобин Белл</li>
-            <li>토빈 벨</li>
-            <li>托宾·贝尔</li>
-          </ul>
+          <strong>Birthday:</strong> {birthday}
         </li>
         <li>
-          <strong>Birthday:</strong> August 7, 1942
+          <strong>Gender:</strong> {gender === 2 ? 'Male' : 'Female'}
         </li>
         <li>
-          <strong>Gender:</strong> Male
+          <strong>Place of Birth:</strong> {place_of_birth}
         </li>
         <li>
-          <strong>Place of Birth:</strong> Queens, New York City, New York, USA
+          <strong>Known for:</strong> {known_for_department}
         </li>
         <li>
-          <strong>Known for Department:</strong> Acting
+          <strong>Deathday:</strong> {deathday}
         </li>
-      </ul> */}
+      </ul>
     </div>
   );
 };
