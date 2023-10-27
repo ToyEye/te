@@ -3,18 +3,11 @@ import { searchMovies } from 'helpers/API';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-// import toast from 'react-hot-toast';
-
 export default function Movies() {
   const [params, setParams] = useSearchParams();
   const query = params.get('query') ?? '';
 
   const [moviesData, setMoviesData] = useState([]);
-  // const [page, setPage] = useState(1);
-
-  // if (query.trim() === '') {
-  //   return toast.error('Ведіть пошуковий запит!');
-  // }
 
   const handleSubmitForm = evt => {
     evt.preventDefault();
