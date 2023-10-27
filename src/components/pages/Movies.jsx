@@ -1,28 +1,32 @@
+import FormSearching from 'components/Form/Form';
 import MovieList from 'components/MoviesList/MoviesList';
 import { searchMovies } from 'helpers/API';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 export default function Movies() {
-  const [params, setParams] = useSearchParams();
-  const query = params.get('query') ?? '';
-
   const [moviesData, setMoviesData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const handleSubmitForm = evt => {
-    evt.preventDefault();
-    const inputValue = evt.target.elements.queryValueSearch.value;
+  const [searchParams, setSearchParams] = useSearchParams();
 
-    params.set('query', inputValue);
+  useEffect(() => {
+    searchParams.set('query', searchQuery);
+    setSearchParams(searchQuery);
 
-    setParams(params);
+    // setSearchParams({ query: searchQuery });
+  }, [searchQuery, setSearchParams]);
+
+  const handleSearch = query => {
+    setSearchQuery(query);
   };
 
   useEffect(() => {
-    if (!query) return;
-
     const fetchedMovies = async () => {
       try {
+        const params = new URLSearchParams(searchParams);
+        const query = params.get('query') || '';
+
         const fetchSearchMovie = await searchMovies(1, query);
         setMoviesData(fetchSearchMovie.results);
       } catch (err) {
@@ -31,21 +35,11 @@ export default function Movies() {
     };
 
     fetchedMovies();
-  }, [query]);
+  }, [searchParams]);
 
   return (
     <div style={{ margin: '0 auto', textAlign: 'center' }}>
-      <form onSubmit={handleSubmitForm}>
-        <input
-          type="text"
-          // value={query}
-          placeholder="Введіть пошуковий запит"
-          name="queryValueSearch"
-          // onChange={handleChange}
-          style={{ marginRight: '10px' }}
-        />
-        <button type="submit">Search</button>
-      </form>
+      <FormSearching onSearch={handleSearch} />
       <MovieList trendMovies={moviesData} />
     </div>
   );
