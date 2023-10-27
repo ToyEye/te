@@ -17,7 +17,7 @@ const getMovieDetails = async movieId => {
   return response.data;
 };
 
-const getMovieReviews = async (movieId, page = 1) => {
+const getMovieReviews = async (page = 1, movieId) => {
   const response = await axios.get(
     `movie/${movieId}/reviews?language=en-US&page=${page}`
   );
@@ -41,7 +41,7 @@ const searchMovies = async (page = 1, query) => {
   return response.data;
 };
 
-const getMovieGenres = async (genresID = 14, page = 1) => {
+const getMovieGenres = async (page = 1, genresID = 14) => {
   const response = await axios.get(
     `discover/movie?with_genres=${genresID}&page=${page}`
   );

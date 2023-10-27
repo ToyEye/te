@@ -12,7 +12,7 @@ export default function Reviews() {
   useEffect(() => {
     const fetchMovieReviews = async () => {
       try {
-        const totalRev = await getMovieReviews(params.movieId);
+        const totalRev = await getMovieReviews(1, params.movieId);
         setAboutReviews(totalRev.results);
       } catch (err) {
         console.log(err);
