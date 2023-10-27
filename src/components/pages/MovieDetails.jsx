@@ -1,7 +1,6 @@
 import { getMovieDetails } from 'helpers/API';
 import { useEffect, useRef, useState } from 'react';
 import {
-  Link,
   Outlet,
   useLocation,
   useParams,
