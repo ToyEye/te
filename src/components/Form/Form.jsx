@@ -5,9 +5,7 @@ const FormSearching = ({ querySearchMovies }) => {
   const [params, setParams] = useSearchParams();
   const query = params.get('query') ?? '';
 
-  useEffect(() => {
-    querySearchMovies(query);
-  }, [query, querySearchMovies]);
+  querySearchMovies(query);
 
   const handleSubmitForm = evt => {
     evt.preventDefault();
