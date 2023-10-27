@@ -13,7 +13,6 @@ export default function GenreFilter() {
 
   const handleLoadMore = () => {
     setPage(prevPage => prevPage + 1);
-    console.log('sd');
   };
 
   useEffect(() => {

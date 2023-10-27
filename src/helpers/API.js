@@ -49,6 +49,20 @@ const getMovieGenres = async (page = 1, genresID = 14) => {
   return response.data;
 };
 
+const getDetailPerson = async idPerson => {
+  const response = await axios.get(`person/${idPerson}?language=en-US`);
+
+  return response.data;
+};
+
+const getTVCreditsPerson = async idPerson => {
+  const response = await axios.get(
+    `person/${idPerson}/tv_credits?language=en-US`
+  );
+
+  return response.data;
+};
+
 export {
   getMovieCredits,
   getMovieDetails,
@@ -56,4 +70,6 @@ export {
   getTrending,
   searchMovies,
   getMovieGenres,
+  getDetailPerson,
+  getTVCreditsPerson,
 };
