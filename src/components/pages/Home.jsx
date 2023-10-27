@@ -42,7 +42,7 @@ export default function Home() {
     <div>
       <h2 style={{ textAlign: 'center' }}>Trending today</h2>
       <MovieList trendMovies={trendMovies} />
-      {setIsAvailableData && <ButtonLoadMore handleLoadMore={handleLoadMore} />}
+      <ButtonLoadMore handleLoadMore={handleLoadMore} />
     </div>
   );
 }
