@@ -25,7 +25,6 @@ export default function GenreFilter() {
   return (
     <div>
       <button>Back</button>
-      <span>добавити в адр рядок /GenreFilter</span>
       <MovieList trendMovies={genreData} />
     </div>
   );
