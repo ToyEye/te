@@ -21,7 +21,6 @@ export default function GenreFilter() {
   return (
     <div>
       <button>Back</button>
-
       <MovieList trendMovies={genreData} />
     </div>
   );

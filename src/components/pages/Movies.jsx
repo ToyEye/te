@@ -44,7 +44,7 @@ export default function Movies() {
     };
 
     fetchedMovies();
-  }, [query]);
+  }, [query, page]);
 
   return (
     <div style={{ margin: '0 auto', textAlign: 'center' }}>

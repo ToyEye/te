@@ -98,6 +98,7 @@ export default function MovieDetails() {
                   return (
                     <GenresListItem key={genre.id}>
                       <Link
+                        to="/GenreFilter"
                         key={genre.id}
                         onClick={() => handleIdClick(genre.id)}
                       >
