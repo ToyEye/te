@@ -27,8 +27,10 @@ const PersonModal = ({ modalIsOpen, closeModal, personId }) => {
       style={customStyles}
       onRequestClose={closeModal}
     >
-      <Person personId={personId} />
-      <DetailsCreditsPerson personId={personId} />
+      <div>
+        <Person personId={personId} />
+        <DetailsCreditsPerson personId={personId} />
+      </div>
     </Modal>
   );
 };
