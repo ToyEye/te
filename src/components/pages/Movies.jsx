@@ -56,7 +56,10 @@ export default function Movies() {
 
   return (
     <div style={{ margin: '0 auto', textAlign: 'center' }}>
-      <FormSearching querySearchMovies={querySearchMovies} />
+      <FormSearching
+        querySearchMovies={querySearchMovies}
+        defaultValue={query}
+      />
       <MovieList trendMovies={moviesData} />
       {moviesData.length !== 0 && <ButtonLoadMore onClick={handleLoadMore} />}
     </div>
