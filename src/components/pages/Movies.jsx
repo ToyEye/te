@@ -12,7 +12,6 @@ export default function Movies() {
   const query = params.get('query') ?? '';
 
   const [moviesData, setMoviesData] = useState([]);
-
   const [page, setPage] = useState(1);
 
   // const [isloadMore, setIsLoadMore] = useState(false);
@@ -20,8 +19,6 @@ export default function Movies() {
   const querySearchMovies = queryValue => {
     params.set('query', queryValue);
     setParams(params);
-
-    // setQuery(queryValue);
   };
 
   const handleLoadMore = () => {
