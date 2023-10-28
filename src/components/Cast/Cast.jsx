@@ -54,11 +54,12 @@ export default function Cast() {
       {aboutCasts.map(({ id, profile_path, name, character }) => {
         return (
           <Link
+            onClick={() => handleClickImg(id)}
             key={id}
             // to={`/Person/${id}`}
             style={{ textDecoration: 'none' }}
           >
-            <ActorContainer onClick={() => handleClickImg(id)} key={id}>
+            <ActorContainer key={id}>
               <ActorImage
                 src={
                   profile_path
