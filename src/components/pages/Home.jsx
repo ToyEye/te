@@ -39,7 +39,7 @@ export default function Home() {
   }, [page]);
 
   return (
-    <div>
+    <div style={{ margin: '0 auto', textAlign: 'center' }}>
       <h2 style={{ textAlign: 'center' }}>Trending today</h2>
       <MovieList trendMovies={trendMovies} />
       <ButtonLoadMore handleLoadMore={handleLoadMore} />
