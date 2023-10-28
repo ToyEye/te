@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { Person } from './Person/Person';
+// import { Person } from './Person/Person';
 
 // PAGES
 const Home = lazy(() => import('./pages/Home'));

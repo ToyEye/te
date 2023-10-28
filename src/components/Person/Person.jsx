@@ -23,7 +23,7 @@ const Person = () => {
   const {
     id,
     biography,
-    also_known_as,
+    // also_known_as,
     birthday,
     deathday,
     gender,
