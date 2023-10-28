@@ -1,3 +1,4 @@
+import { DetailsCreditsPerson } from 'components/Person/DetailsCreditsPerson';
 import { Person } from 'components/Person/Person';
 import Modal from 'react-modal';
 
@@ -5,8 +6,13 @@ const customStyles = {
   content: {
     top: '50%',
     left: '50%',
-    right: 'auto',
+
+    right: '75%',
     bottom: 'auto',
+
+    maxHeight: '80%',
+    overflow: 'auto',
+
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
   },
@@ -22,6 +28,7 @@ const PersonModal = ({ modalIsOpen, closeModal, personId }) => {
       onRequestClose={closeModal}
     >
       <Person personId={personId} />
+      <DetailsCreditsPerson personId={personId} />
     </Modal>
   );
 };

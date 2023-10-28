@@ -1,5 +1,6 @@
 import { getDetailPerson } from 'helpers/API';
 import { useEffect, useState } from 'react';
+
 // import { useParams } from 'react-router-dom';
 
 const defaultImg =
