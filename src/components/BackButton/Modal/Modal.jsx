@@ -14,14 +14,14 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-const PersonModal = ({ modalIsOpen, closeModal }) => {
+const PersonModal = ({ modalIsOpen, closeModal, personId }) => {
   return (
     <Modal
       isOpen={modalIsOpen}
       style={customStyles}
       onRequestClose={closeModal}
     >
-      <Person />
+      <Person personId={personId} />
     </Modal>
   );
 };

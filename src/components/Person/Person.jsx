@@ -2,15 +2,15 @@ import { getDetailPerson } from 'helpers/API';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const Person = () => {
+const Person = ({ personId }) => {
   const [details, setDetails] = useState([]);
-  const params = useParams();
-  const idPerson = params.PersonId;
+  // const params = useParams();
+  // const idPerson = params.PersonId;
 
   useEffect(() => {
     const fetchPersonInfo = async () => {
       try {
-        const detailsPers = await getDetailPerson(idPerson);
+        const detailsPers = await getDetailPerson(personId);
 
         setDetails(detailsPers);
       } catch (err) {
@@ -19,7 +19,7 @@ const Person = () => {
     };
 
     fetchPersonInfo();
-  }, [idPerson]);
+  }, [personId]);
   const {
     id,
     biography,

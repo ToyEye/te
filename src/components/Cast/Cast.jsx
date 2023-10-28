@@ -21,7 +21,8 @@ export default function Cast() {
 
   const params = useParams();
   // const [isError, setIsError] = useState(false);
-
+  const [personId, setPersonId] = useState(null);
+  // console.log(personId);
   useEffect(() => {
     const fetchMovieCredits = async () => {
       // setIsError(false);
@@ -45,16 +46,15 @@ export default function Cast() {
     }
   }, [params.movieId]);
 
-  const handleClickImg = persId => {
-    console.log(persId);
-  };
-
   return (
     <ActorCard>
       {aboutCasts.map(({ id, profile_path, name, character }) => {
         return (
           <Link
-            onClick={() => handleClickImg(id)}
+            onClick={() => {
+              setShowModal(true);
+              setPersonId(id);
+            }}
             key={id}
             // to={`/Person/${id}`}
             style={{ textDecoration: 'none' }}
@@ -67,7 +67,6 @@ export default function Cast() {
                     : defaultImg
                 }
                 alt={name}
-                onClick={() => setShowModal(true)}
               />
               <ActorInfoContainer>
                 <ActorName>{name}</ActorName>
@@ -79,6 +78,7 @@ export default function Cast() {
       })}
       {showModal && (
         <PersonModal
+          personId={personId}
           modalIsOpen={showModal}
           closeModal={() => setShowModal(false)}
         ></PersonModal>
