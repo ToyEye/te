@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 import FormSearching from 'components/Form/Form';
 // import toast from 'react-hot-toast';
 
-// import { ButtonLoadMore } from 'components/LoadMore/LoadMore';
+import { ButtonLoadMore } from 'components/LoadMore/LoadMore';
 
 export default function Movies() {
   const [moviesData, setMoviesData] = useState([]);
 
   const [query, setQuery] = useState('');
-  // const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1);
 
   // const [isloadMore, setIsLoadMore] = useState(false);
 
@@ -18,9 +18,9 @@ export default function Movies() {
     setQuery(queryValue);
   };
 
-  // const handleLoadMore = () => {
-  //   setPage(prevPage => prevPage + 1);
-  // };
+  const handleLoadMore = () => {
+    setPage(prevPage => prevPage + 1);
+  };
 
   useEffect(() => {
     if (!query) return;
@@ -55,7 +55,7 @@ export default function Movies() {
     <div style={{ margin: '0 auto', textAlign: 'center' }}>
       <FormSearching querySearchMovies={querySearchMovies} />
       <MovieList trendMovies={moviesData} />
-      {/* <ButtonLoadMore onClick={handleLoadMore} /> */}
+      <ButtonLoadMore onClick={handleLoadMore} />
     </div>
   );
 }
