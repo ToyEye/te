@@ -19,6 +19,8 @@ const DetailsCreditsPerson = ({ personId }) => {
   }, [personId]);
   return (
     <>
+      <h2>Know for</h2>
+
       {tVCredits.map(
         ({
           id,
@@ -33,7 +35,6 @@ const DetailsCreditsPerson = ({ personId }) => {
         }) => {
           return (
             <div ket={id}>
-              <h2>Know for</h2>
               <h2>{name}</h2>
               <p>Original Name: {original_name}</p>
               <p>Overview: {overview}</p>
