@@ -5,17 +5,23 @@ import FormSearching from 'components/Form/Form';
 // import toast from 'react-hot-toast';
 
 import { ButtonLoadMore } from 'components/LoadMore/LoadMore';
+import { useSearchParams } from 'react-router-dom';
 
 export default function Movies() {
+  const [params, setParams] = useSearchParams();
+  const query = params.get('query') ?? '';
+
   const [moviesData, setMoviesData] = useState([]);
 
-  const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
 
   // const [isloadMore, setIsLoadMore] = useState(false);
 
   const querySearchMovies = queryValue => {
-    setQuery(queryValue);
+    params.set('query', queryValue);
+    setParams(params);
+
+    // setQuery(queryValue);
   };
 
   const handleLoadMore = () => {
