@@ -20,7 +20,6 @@ const DetailsCreditsPerson = ({ personId }) => {
   return (
     <>
       <h2>Know for</h2>
-
       {tVCredits.map(
         ({
           id,
