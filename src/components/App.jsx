@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { PersonModal } from './BackButton/Modal/Modal';
+import { PersonModal } from './BackButton/Modal/PersonModal';
 // import { Person } from './Person/Person';
 
 // PAGES

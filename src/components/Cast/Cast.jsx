@@ -9,7 +9,7 @@ import {
   ActorName,
   ActorCharacter,
 } from './Cast.styled';
-import { PersonModal } from 'components/BackButton/Modal/Modal';
+import { PersonModal } from 'components/BackButton/Modal/PersonModal';
 
 // import defaultPic from 'download.jpg';
 const defaultImg =
