@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 
 const Person = () => {
   const [details, setDetails] = useState([]);
-  console.log(details);
   const params = useParams();
   const idPerson = params.PersonId;
 

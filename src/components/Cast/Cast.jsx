@@ -9,6 +9,7 @@ import {
   ActorName,
   ActorCharacter,
 } from './Cast.styled';
+import { PersonModal } from 'components/BackButton/Modal/Modal';
 
 // import defaultPic from 'download.jpg';
 const defaultImg =
@@ -16,6 +17,8 @@ const defaultImg =
 
 export default function Cast() {
   const [aboutCasts, setAboutCasts] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+
   const params = useParams();
   // const [isError, setIsError] = useState(false);
 
@@ -42,16 +45,20 @@ export default function Cast() {
     }
   }, [params.movieId]);
 
+  const handleClickImg = persId => {
+    console.log(persId);
+  };
+
   return (
     <ActorCard>
       {aboutCasts.map(({ id, profile_path, name, character }) => {
         return (
           <Link
             key={id}
-            to={`/Person/${id}`}
+            // to={`/Person/${id}`}
             style={{ textDecoration: 'none' }}
           >
-            <ActorContainer key={id}>
+            <ActorContainer onClick={() => handleClickImg(id)} key={id}>
               <ActorImage
                 src={
                   profile_path
@@ -59,6 +66,7 @@ export default function Cast() {
                     : defaultImg
                 }
                 alt={name}
+                onClick={() => setShowModal(true)}
               />
               <ActorInfoContainer>
                 <ActorName>{name}</ActorName>
@@ -68,6 +76,12 @@ export default function Cast() {
           </Link>
         );
       })}
+      {showModal && (
+        <PersonModal
+          modalIsOpen={showModal}
+          closeModal={() => setShowModal(false)}
+        ></PersonModal>
+      )}
     </ActorCard>
   );
 }
