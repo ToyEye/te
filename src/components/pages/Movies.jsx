@@ -12,7 +12,7 @@ export default function Movies() {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
 
-  const [isloadMore, setIsLoadMore] = useState(false);
+  // const [isloadMore, setIsLoadMore] = useState(false);
 
   const querySearchMovies = queryValue => {
     setQuery(queryValue);
@@ -31,13 +31,18 @@ export default function Movies() {
 
         const totalResults = fetchSearchMovie.results;
 
-        if (totalResults === 0) {
-          toast.error('нічого не знайдено!');
-        }
+        // if (totalResults === 0) {
+        //   toast.error('нічого не знайдено!');
+        // }
 
-        setMoviesData(totalResults);
-
-        setIsLoadMore(page < Math.ceil(totalResults / 20));
+        // setMoviesData(totalResults);
+        setMoviesData(prevMoviesData => {
+          if (page === 1) {
+            return [...totalResults];
+          }
+          return [...prevMoviesData, ...totalResults];
+        });
+        // setIsLoadMore(page < Math.ceil(totalResults / 20));
       } catch (err) {
         console.log(err);
       }
@@ -50,7 +55,7 @@ export default function Movies() {
     <div style={{ margin: '0 auto', textAlign: 'center' }}>
       <FormSearching querySearchMovies={querySearchMovies} />
       <MovieList trendMovies={moviesData} />
-      {isloadMore && <ButtonLoadMore onClick={handleLoadMore} />}
+      {/* <ButtonLoadMore onClick={handleLoadMore} /> */}
     </div>
   );
 }
