@@ -1,6 +1,9 @@
 import { getDetailPerson } from 'helpers/API';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
+
+const defaultImg =
+  'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
 const Person = ({ personId }) => {
   const [details, setDetails] = useState([]);
@@ -36,7 +39,15 @@ const Person = ({ personId }) => {
   return (
     <div key={id}>
       <h2>{name}</h2>
-      <img src={`https://image.tmdb.org/t/p/w200${profile_path}`} alt={name} />
+      <img
+        src={
+          profile_path
+            ? `https://image.tmdb.org/t/p/w200${profile_path}`
+            : defaultImg
+        }
+        alt={name}
+      />
+
       <h3>Biography</h3>
       <p>{biography ? biography : '-'}</p>
       <h3>Personal Information</h3>
