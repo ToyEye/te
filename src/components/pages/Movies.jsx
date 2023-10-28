@@ -58,7 +58,7 @@ export default function Movies() {
     <div style={{ margin: '0 auto', textAlign: 'center' }}>
       <FormSearching querySearchMovies={querySearchMovies} />
       <MovieList trendMovies={moviesData} />
-      <ButtonLoadMore onClick={handleLoadMore} />
+      {moviesData.length !== 0 && <ButtonLoadMore onClick={handleLoadMore} />}
     </div>
   );
 }
