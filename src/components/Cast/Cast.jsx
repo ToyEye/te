@@ -1,6 +1,6 @@
 import { getMovieCredits } from 'helpers/API';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
   ActorCard,
   ActorContainer,
@@ -9,7 +9,7 @@ import {
   ActorName,
   ActorCharacter,
 } from './Cast.styled';
-import { PersonModal } from 'components/BackButton/Modal/PersonModal';
+import { PersonModal } from 'components/Modal/PersonModal';
 
 // import defaultPic from 'download.jpg';
 const defaultImg =
@@ -50,13 +50,12 @@ export default function Cast() {
     <ActorCard>
       {aboutCasts.map(({ id, profile_path, name, character }) => {
         return (
-          <Link
+          <div
             onClick={() => {
               setShowModal(true);
               setPersonId(id);
             }}
             key={id}
-            // to={`/Person/${id}`}
             style={{ textDecoration: 'none' }}
           >
             <ActorContainer key={id}>
@@ -73,7 +72,7 @@ export default function Cast() {
                 <ActorCharacter>Character: {character}</ActorCharacter>
               </ActorInfoContainer>
             </ActorContainer>
-          </Link>
+          </div>
         );
       })}
       {showModal && (

@@ -9,8 +9,6 @@ const DetailsCreditsPerson = ({ personId }) => {
       try {
         const detailsPers = await getTVCreditsPerson(personId);
 
-        console.log(detailsPers);
-
         setTVCredits(detailsPers.cast);
       } catch (err) {
         console.log(err);

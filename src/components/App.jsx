@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { PersonModal } from './BackButton/Modal/PersonModal';
+// import { PersonModal } from './BackButton/Modal/PersonModal';
 // import { Person } from './Person/Person';
 
 // PAGES
@@ -20,13 +20,13 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<HeaderLayout />}>
           <Route index element={<Home />} />
-          <Route path="Movie" element={<Movies />} />
-          <Route path="Movie/:movieId" element={<MovieDetails />}>
-            <Route path="Cast" element={<Cast />}></Route>
-            <Route path="Reviews" element={<Reviews />} />
+          <Route path="movie" element={<Movies />} />
+          <Route path="movie/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />}></Route>
+            <Route path="reviews" element={<Reviews />} />
           </Route>
-          <Route path="GenreFilter/:GenreId" element={<GenreFilter />} />
-          <Route path="person/:personId" element={<PersonModal />} />
+          <Route path="genreFilter/:GenreId" element={<GenreFilter />} />
+          {/* <Route path="person/:personId" element={<PersonModal />} /> */}
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>

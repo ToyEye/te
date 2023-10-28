@@ -8,8 +8,6 @@ const defaultImg =
 
 const Person = ({ personId }) => {
   const [details, setDetails] = useState([]);
-  // const params = useParams();
-  // const idPerson = params.PersonId;
 
   useEffect(() => {
     const fetchPersonInfo = async () => {
