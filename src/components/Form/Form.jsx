@@ -1,6 +1,3 @@
-// import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-
 const FormSearching = ({ querySearchMovies }) => {
   const handleSubmitForm = evt => {
     evt.preventDefault();
