@@ -37,7 +37,10 @@ export default function GenreFilter() {
     <div>
       <ButtonToBack location={'/'} />
       <MovieList trendMovies={genreData} />
-      <ButtonLoadMore handleLoadMore={handleLoadMore} />
+      <ButtonLoadMore
+        handleLoadMore={handleLoadMore}
+        style={{ margin: '0 auto', textAlign: 'center' }}
+      />
     </div>
   );
 }
