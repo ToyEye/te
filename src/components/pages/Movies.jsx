@@ -16,7 +16,7 @@ export default function Movies() {
   // const [isloadMore, setIsLoadMore] = useState(false);
 
   const querySearchMovies = queryValue => {
-    setParams({ q: params });
+    setParams({ q: queryValue });
   };
 
   const handleLoadMore = () => {
@@ -52,7 +52,7 @@ export default function Movies() {
     };
 
     fetchedMovies();
-  }, [query, page]);
+  }, [page, params]);
 
   return (
     <div style={{ margin: '0 auto', textAlign: 'center' }}>
