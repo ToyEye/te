@@ -1,29 +1,33 @@
+import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-const FormSearching = ({ querySearchMovies, defaultValue }) => {
+const FormSearching = ({ querySearchMovies }) => {
+  const [inputValue, setInputValue] = useState('');
+
   const handleSubmitForm = evt => {
     evt.preventDefault();
-
-    const inputValue = evt.target.elements.queryValueSearch.value.toLowerCase();
 
     if (!inputValue.trim()) {
       toast.error('Please enter something!');
       return;
     }
 
-    querySearchMovies(inputValue);
-    evt.target.elements.queryValueSearch.value = '';
+    const toLowerCaseSearchedValue = inputValue.toLowerCase();
+    querySearchMovies(toLowerCaseSearchedValue);
+    setInputValue('');
+  };
+
+  const handleInputChange = evt => {
+    setInputValue(evt.target.value);
   };
 
   return (
     <form onSubmit={handleSubmitForm}>
       <input
         type="text"
-        // заюзав defaultValue замість value, тому що для value тре onChange, а value я передаю із пропсів.
-        // defaultValue зарезерв. змінна
-        defaultValue={defaultValue}
+        value={inputValue}
+        onChange={handleInputChange}
         placeholder="Введіть пошуковий запит"
-        name="queryValueSearch"
         style={{ marginRight: '10px' }}
       />
       <button type="submit">Search</button>

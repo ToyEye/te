@@ -19,7 +19,7 @@ const DetailsCreditsPerson = ({ personId }) => {
   }, [personId]);
   return (
     <>
-      <h2>Know for</h2>
+      <h2 key={tVCredits.id}>Know for</h2>
       {tVCredits.map(
         ({
           id,
