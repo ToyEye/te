@@ -1,8 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import { Toaster } from 'react-hot-toast';
-// import { PersonModal } from './BackButton/Modal/PersonModal';
-// import { Person } from './Person/Person';
+import { toastConfig } from './toastConfig';
 
 // PAGES
 const Home = lazy(() => import('./pages/Home'));
@@ -31,16 +30,7 @@ export const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-      <Toaster
-        toastOptions={{
-          className: '',
-          style: {
-            border: '1px solid #713200',
-            padding: '16px',
-            color: '#713200',
-          },
-        }}
-      />
+      <Toaster {...toastConfig} />
     </>
   );
 };

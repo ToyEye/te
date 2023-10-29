@@ -1,7 +1,15 @@
+import toast from 'react-hot-toast';
+
 const FormSearching = ({ querySearchMovies, defaultValue }) => {
   const handleSubmitForm = evt => {
     evt.preventDefault();
+
     const inputValue = evt.target.elements.queryValueSearch.value.toLowerCase();
+
+    if (!inputValue.trim()) {
+      toast.error('Please enter something!');
+      return;
+    }
 
     querySearchMovies(inputValue);
     evt.target.elements.queryValueSearch.value = '';
