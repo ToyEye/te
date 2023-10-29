@@ -9,7 +9,6 @@ import { useSearchParams } from 'react-router-dom';
 
 export default function Movies() {
   const [params, setParams] = useSearchParams();
-  const query = params.get('q') ?? '';
 
   const [moviesData, setMoviesData] = useState([]);
   const [page, setPage] = useState(1);
@@ -17,8 +16,7 @@ export default function Movies() {
   // const [isloadMore, setIsLoadMore] = useState(false);
 
   const querySearchMovies = queryValue => {
-    params.set('q', queryValue);
-    setParams(params);
+    setParams({ q: params });
   };
 
   const handleLoadMore = () => {
@@ -26,6 +24,8 @@ export default function Movies() {
   };
 
   useEffect(() => {
+    const query = params.get('q');
+
     if (!query) return;
 
     const fetchedMovies = async () => {
