@@ -25,7 +25,6 @@ export const App = () => {
             <Route path="reviews" element={<Reviews />} />
           </Route>
           <Route path="genreFilter/:GenreId" element={<GenreFilter />} />
-          {/* <Route path="person/:personId" element={<PersonModal />} /> */}
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>

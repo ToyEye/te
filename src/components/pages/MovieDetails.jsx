@@ -29,8 +29,8 @@ export default function MovieDetails() {
 
   const params = useParams();
 
-  const localLocation = useLocation();
-  const backLinkLocationRef = useRef(localLocation.state?.from ?? `/`);
+  const generLocation = useLocation();
+  const backLinkLocationRef = useRef(generLocation.state?.from ?? `/`);
 
   useEffect(() => {
     if (!params.movieId) {
@@ -55,7 +55,6 @@ export default function MovieDetails() {
 
   return (
     <div style={{ padding: '20px' }}>
-      {/* <LinkBtnBack to={backLinkLocationRef.current}>Back</LinkBtnBack> */}
       <ButtonToBack location={backLinkLocationRef.current} />
       {aboutMovie && (
         <ContainerInfo>
@@ -87,6 +86,7 @@ export default function MovieDetails() {
                       <LinkGenres
                         to={`/GenreFilter/${genre.id}`}
                         key={genre.id}
+                        state={{ from: generLocation }}
                       >
                         #{genre.name}
                       </LinkGenres>

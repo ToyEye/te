@@ -2,14 +2,17 @@ import { ButtonToBack } from 'components/BackButton/BackButton';
 import { ButtonLoadMore } from 'components/LoadMore/LoadMore';
 import MovieList from 'components/MoviesList/MoviesList';
 import { getMovieGenres } from 'helpers/API';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 
 export default function GenreFilter() {
   const [genreData, setGenreData] = useState([]);
   const paramsGenre = useParams();
   const genreId = paramsGenre.GenreId;
   const [page, setPage] = useState(1);
+
+  const localLocation = useLocation();
+  const backLinkLocationRef = useRef(localLocation.state?.from ?? `/`);
 
   const handleLoadMore = () => {
     setPage(prevPage => prevPage + 1);
@@ -35,7 +38,7 @@ export default function GenreFilter() {
   }, [genreId, page]);
   return (
     <div>
-      <ButtonToBack location={'/'} />
+      <ButtonToBack location={backLinkLocationRef.current} />
       <MovieList trendMovies={genreData} />
       <ButtonLoadMore
         handleLoadMore={handleLoadMore}
